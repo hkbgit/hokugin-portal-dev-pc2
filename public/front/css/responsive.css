@@ -1,0 +1,500 @@
+@charset "utf-8"; 
+
+/*------------------------ 
+タイトル: 基本設計
+制作者 : E.M.J
+URL : 
+概要 : レスポンシブ用特殊設定
+作成日 : 2016/10/15
+変更日 : 2016/11/08
+--------------------------*/
+
+/************************************
+一応参考までにBootStrapの画面切り替えポイント（BreakPoint）を書いておきます。
+.col-xs- 
+Extra small devices = Phones (<768px) 
+
+.col-sm-
+Small devices = Tablets (≥768px) : contsiner width 750px
+
+.col-md-
+ Medium devices = Desktops (≥992px)  : contsiner width 970px
+ 
+.col-lg-
+Large devices = Desktops (≥1200px) : contsiner width 1170px
+************************************/
+
+
+/* lg PC大画面 */ 
+@media (min-width: 1200px) {
+ /* Make Navigation Toggle on Desktop Hover */
+  .dropdown:hover .dropdown-menu {
+      display: block;
+      -webkit-animation: fadeInUp 400ms;
+      animation: fadeInUp 400ms;
+  }
+
+  #portfolio .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  #footer ul > li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .portfolio-item-function {
+  	xbackground-color:#76daba;
+  }
+
+}
+
+/* md 主にPC向け */
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+ /* Make Navigation Toggle on Desktop Hover */
+  .dropdown:hover .dropdown-menu {
+      display: block;
+      -webkit-animation: fadeInUp 400ms;
+      animation: fadeInUp 400ms;
+  }
+
+  .phone li{
+    font-size:13px;
+  }
+
+  .navbar-nav > li {
+    margin-left: 10px;
+  }
+
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #main-slider .carousel .carousel-content {
+    margin-left: 80px;
+  }
+
+  #main-slider .carousel .item {
+    background-position: 70% 50%;
+  }
+
+  .review-wrap .review-inner h3 a {
+    font-size: 15px;
+    color: #ff0;
+  }
+
+  .btn-cta {
+    padding: 8px 20px;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  
+  .cta_area {
+    padding:20px;
+    margin-bottom: 20px;
+    border-radius:5px;
+  }
+  
+  .cta_area_p-ore { 
+    font-size: 35px;
+    margin-bottom: 0px;
+  }
+  
+  .cta_area_p-ble {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+
+  .review-wrap .overlay{
+    padding: 15px;
+  }
+
+  .review-wrap .overlay .preview{
+    line-height: inherit;
+  }
+
+  .feature-wrap h2, 
+  .single-services h2 {
+    font-size: 18px;
+  }
+
+  .feature-wrap h3, 
+  .single-services h3{
+    font-size: 14px;
+  }
+
+  #portfolio .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  #footer ul > li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .bottom-banner-item-wrap {
+		background-color: #ff0;
+    padding: 0 0 0 23px;
+   }
+
+  .portfolio-item-function {
+    xbackground-color:#e5eea8;
+  }
+
+  .review-wrap .review-inner h3{
+    font-size: 14px;
+  }
+
+  .review-wrap .review-inner p.function-icon{
+    font-size: 12px;
+  }
+}
+
+
+/* sm ※タブレット向け */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Make Navigation Toggle on Desktop Hover */
+  .dropdown:hover .dropdown-menu {
+      display: block;
+      -webkit-animation: fadeInUp 400ms;
+      animation: fadeInUp 400ms;
+  }
+
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-nav > li {
+    margin-left: 0;
+  }
+
+  #main-slider .carousel .carousel-content {
+    margin-left: 80px;
+  }
+  
+  #main-slider .carousel .item {
+    background-position: 80% 50%;
+  }
+
+  #main-slider .carousel h1 {
+    xfont-size: 20px;
+		font-size: 40px;
+		font-weight: 100;
+		xcolor: #ff0000;
+  }
+
+  #main-slider .carousel h2 {
+    font-size: 18px;
+  }
+
+  .review-wrap .review-inner h3 a {
+    font-size: 14px;
+  }
+ 
+   .review-wrap .review-inner p {
+      line-height: 1.2em;
+  }
+
+  .btn-cta {
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  
+  .cta_area {
+    padding:20px;
+    margin-bottom: 20px;
+    border-radius:5px;
+  }
+  
+  .cta_area_p-ore { 
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
+  
+  .cta_area_p-ble {
+    font-size: 22px;
+    margin-bottom: 0px;
+  }
+
+  #footer ul > li {
+    xdisplay: inline-block;
+    margin-left: 15px;
+  }
+
+  .bottom-banner-item-wrap {
+	xbackground-color:#f4acac;
+    padding: 0 0 0 23px;
+   }
+
+  .p-mark {
+	height: 58px;
+  }
+
+  .portfolio-item-function {
+	xbackground-color:#a7a3cd;
+  }
+
+  .review-wrap .review-inner h3{
+    font-size: 14px;
+  }
+
+  .review-wrap .review-inner p.function-icon{
+    font-size: 12px;
+  }
+
+}
+
+/* xs スマホ向け　*/
+@media (max-width: 767px) {
+
+  body > section {
+    xpadding: 10px 0 10px 0;
+    padding: 0;
+
+  }
+  
+  h1, h2, h3 {
+    margin-top: 10px;
+  }
+
+  .center h2 {
+    font-size: 20px;
+  }
+  
+  .center h2.std {
+	font-size: 40px;
+}
+
+
+  .center {
+    padding-bottom: 0;
+  }
+
+#main-slider .carousel .item {
+  height: 300px;
+}
+
+  .intro {
+	padding-bottom: 10px;
+  }
+  
+  .module-art {
+	padding:20px 0 20px 0;
+  }
+
+  .module-art h2 {
+    font-size: 20px;
+  }  
+
+  .module-art h3 {
+    font-size: 18px;
+  }  
+
+  .news-list {
+	  margin-top: 20px;
+	}
+
+  .news-list dd {
+    padding: 0 0 0.5em 1em;
+	}
+
+  .container > .navbar-header, .container > .navbar-collapse{
+    margin-left: 0;
+  }
+
+  .navbar {
+    xbackground: #1757b9;
+    background-color: #228a7b;
+  }
+
+  .navbar .container {
+    padding-left: 0;	  
+  }
+
+  .navbar-brand {
+    padding-left: 15px;
+  }
+
+  .navbar-collapse {
+    background: #403f3f;
+    padding-left: 0;  
+  }
+
+  .navbar-nav > li {
+    padding-bottom: 0;
+  }
+
+	#main-slider .carousel .carousel-content {
+	  margin-top: 110px;
+	}
+
+  #main-slider .carousel h1 {
+    font-size: 40px;
+  }
+
+  #main-slider .carousel h2 {
+    font-size: 15px;
+  }
+  
+  .btn-cta {
+    padding: 8px 20px;
+    border-radius: 0px;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0px;
+  }
+
+  .function-number {
+      font-size: 80px;
+      line-height: 7rem;
+  }
+
+  .price-number {
+      font-size: 80px;
+      line-height: 7rem;
+  }
+
+  .testimonials_section_pub-area_logo {
+    max-width: 100px;
+  }  
+  .cta_area {
+    padding:20px;
+    margin-bottom: 20px;
+    border-radius:0px;
+  }
+  
+  .cta_area_p-ore { 
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .cta_area_p-ble {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+   #footer .pull-right{
+    float: left !important;
+  }
+
+  .bottom-banner_item {
+    margin-bottom: 10px;
+  }
+
+  #footer ul > li {
+  }
+
+  .review-wrap .review-inner h3{
+    font-size: 16px;
+  }
+
+  .review-wrap .review-inner p{
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+
+	.rich-wrap {
+	  background-position: right center;
+	  padding:20px 0;
+	}
+
+	.rich-wrap_blur {
+	  background-position: right center;
+	  padding: 0;
+	  overflow: hidden;/*ブラー効果でボヤけた部分を非表示*/
+	  position: relative;
+	  margin-bottom: 10px;
+	}
+	
+	.rich-wrap_blur:before {
+	  content: '';
+	  background: inherit;/*.rich-wrapで設定した背景画像を継承する*/
+	  -webkit-filter: blur(5px);
+	  -moz-filter: blur(5px);
+	  -o-filter: blur(5px);
+	  -ms-filter: blur(5px);
+	  filter: blur(5px);
+	  position: absolute;
+	  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+	  top: -5px;
+	  left: -5px;
+	  right: -5px;
+	  bottom: -5px;
+	  z-index: -1;/*重なり順序を一番下にしておく*/
+  }
+  
+  .rich-wrap_blur h2 {
+		font-size: 50px;
+		font-weight: 100;
+		color: #fff;
+		text-shadow: 0px 0px 3px #333;
+	}
+	
+	.brand_layer {
+    background-color: rgba(0, 0, 0, 0);
+	}
+
+	.brand_layer_inner {
+	  background-color: rgba(255, 255, 255, 0);
+	}
+	
+	.rich-wrap_xs {
+		width: 100%;
+		height: 100%;
+	  background-size: cover;
+		background-color: rgba(0, 0, 0, 0.3);
+		padding: 20px 0 20px 0;
+	  min-height: 350px;
+	}
+
+	.rich-wrap h2 {
+		font-size: 50px;
+		font-weight: 100;
+		color: #fff;
+		text-shadow: 0px 0px 3px #333;
+	}
+	
+	.rich-p {
+	padding: 20px 15px 0 15px;
+}
+
+	
+	.rich-p-mini{
+		color: #fff;
+		text-shadow: 0px 0px 3px #333;
+	}
+	
+	.btn-transparent3_BKWH {
+		border: 3px solid #fff;
+		background: transparent;
+		color: #fff;
+		}
+
+	.btn-transparent3_BKWH:hover {
+		color: #333;
+		background: #fFF;
+		border-color: #333;
+		}
+
+	#portfolio h2.portfolio_logo {
+		font-size: 30px;
+		xword-wrap: break-word;
+		word-break: keep-all;
+	}
+
+  
+}
+
+
+/* XS Portrait ※スマホ横向き　*/
+@media (max-width: 480px) {
+
+}
+

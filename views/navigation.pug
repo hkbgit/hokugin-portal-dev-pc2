@@ -1,0 +1,70 @@
+script.
+  $(function () {
+    $('[data-toggle="popover"]').popover({
+      trigger: 'manual',
+      placement: "bottom"
+    });
+    $('#password_pop').popover('show')
+  });
+nav.navbar.navbar-default(style='margin-bottom: 0;')
+  .container#top_navbar
+    .navbar-header
+      a.navbar-brand(href='/back/topBanners') アプリバンキングWebView管理画面
+    if name
+      ul.nav.navbar-nav.navbar-right
+        li
+          p.navbar-text ログインユーザー : #{name}
+        li
+          - var dataContent = "パスワードの変更から" + passwordLimitDays + "日以上経過しました。"
+          p.navbar-text(data-toggle='popover' data-content= dataContent id= password_pop) 最終パスワード変更日時 : #{updateDate}
+        li
+          a(href='/back/password')
+            div パスワード変更
+        li
+          a(href='/back/logout')
+            div ログアウト
+  .container#bottom_navbar
+    if name
+      ul.nav.navbar-nav
+        //- li
+        //-   a(href='/back/banners') バナー一覧
+        //- li
+        //-   a(href='/back/registerBanner') バナー登録
+        li
+          a(href='/back/topBanners') TOP画面バナー一覧
+        li.nav-item.dropdown
+          //  dropdown menu
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+            | TOP画面バナー登録 
+            span.caret
+          ul.dropdown-menu
+            li
+              a.dropdown-item(href='/back/registerDefaultTopBanner') デフォルトバナー登録
+            li
+              a.dropdown-item(href='/back/registerContractTopBanner') 契約者通番紐付バナー登録
+          li
+            a(href='/back/extend') コラム一覧
+          li
+            a(href='/back/extendRegister') コラム登録
+          li
+            a(href='/back/extend/discussList') コラム目次一覧
+          li
+            a(href='/back/extendRegister/discussAdd') コラム目次登録
+          li
+            a(href='/back/comment') コメント一覧
+          li
+            a(href='/back/commentRegister') コメント登録
+          li
+            a(href='/back/kyara') キャラ一覧
+          li
+            a(href='/back/kyaraRegister') キャラ登録
+          li
+            a(href='/back/tairu') タイル一覧
+          li
+            a(href='/back/tairuRegister') タイル登録
+            
+
+
+
+
+

@@ -1,0 +1,185 @@
+extends layout
+
+block content
+
+  link(rel='stylesheet', href='/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+  script(src='/moment/min/moment.min.js')
+  script(src='/moment/locale/ja.js')
+  script(src='/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+  script(src='/front/js/editor/kindeditor-all.js')
+  script(src='/front/js/editor/lang/en.js')
+  script.
+    $(function () {
+      $('.datetimepicker').datetimepicker({
+          locale: 'ja',
+          format : 'YYYY/MM/DD HH:mm'
+      });
+    });
+  style.
+    .ke-container.ke-container-default{
+        width:380px!important;
+    }
+  include navigation
+  div.container
+    if title
+      h1= title
+    p (※)は必須入力です
+    if error
+      div.alert.alert-danger
+        p= error
+    div#errorMessage
+      p
+    //- mixin extendForm(name, action)
+    form#extendForm(name="registerExtend" method="post" action="/back/extendRegister/discussAdd" enctype="multipart/form-data")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="selectBannerPosition") タイトル（※）
+          div.col-sm-3
+            select.form-control#selectBannerPosition(name="bannerPosition")
+              option(value= "")
+              each bannerPosition in bannerPostions
+                if detailInfo
+                  if detailInfo.extend_id === bannerPosition.id
+                    option(value= bannerPosition.id selected) #{bannerPosition.title}
+                  else
+                    option(value= bannerPosition.id) #{bannerPosition.title}
+                else
+                  option(value= bannerPosition.id) #{bannerPosition.title}
+        div.row
+          label.col-sm-12.control-label#errorBannerPosition(for="selectBannerPosition")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputSmalTitle") 小さなタイトル（※）
+          div.col-sm-3
+            if detailInfo
+              input.form-control#inputSmalTitle(type="text" name="smalTitle"  maxlength="255" value= detailInfo.sub_title)
+            else
+              input.form-control#inputSmalTitle(type="text" name="smalTitle"  maxlength="255")
+        div.row
+          label.col-sm-12.control-label#errorSmalTitle(for="inputSmalTitle")       
+      
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputPriority") 表示優先順位（※）
+          div.col-sm-2
+            if detailInfo
+              input.form-control#inputPriority(type="text" name="priority"  maxlength="10" value= detailInfo.priority)
+            else
+              input.form-control#inputPriority(type="text" name="priority"  maxlength="10")
+        div.row
+          label.col-sm-12.control-label#errorPriority(for="inputPriority")      
+
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputContent") 説明文
+          div.col-sm-8
+            if detailInfo
+              textarea.form-control#inputContent(type="text" name="content" rows="5" style="width:414px;height:600px;")
+            else
+              textarea.form-control#editor_id(type="text" name="content" rows="5" style="width:414px;height:600px;")
+        div.row
+          label.col-sm-12.control-label#errorContent(for="inputContent")
+      
+    
+      div.form-group.row
+        div.col-sm-2.col-sm-offset-5
+          if detailInfo
+            input(type="hidden" id="asd" value= detailInfo.content)
+            input(type="hidden" name="detailId" value= detailInfo.id)
+          button.btn.btn-primary(data-toggle="modal" data-target="#confirmModal" onclick="return false;") 登録確認
+          div#confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            div.modal-dialog(role='document')
+              div.modal-content
+                div.modal-header
+                  h4#exampleModalLabel.modal-title 登録内容確認
+                div.modal-body
+                  | この内容で登録します
+                div.modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') キャンセル
+                  button#hideModal.btn.btn-primary(type='submit') 登録
+  script.
+   $(document).ready(function(){
+      var content = $('#asd').val();
+
+      editor.html(content);
+
+      //- for(var i = 0; i < catalog.length; i++){
+      //-   var e = document.getElementById("dynamicDiv");
+      //-   var div = document.createElement("div");
+      //-   e.disabled='';
+      //-   div.innerHTML = e.innerHTML;
+      //-   div.className = "form-group" + i;
+      //-   div.id = "dynamicDiv" + i;
+      //-   document.getElementById("dynamic").appendChild(div);
+      //-   var divp = document.getElementById('dynamicDiv'+i);
+      //-   var inputs = divp.getElementsByTagName('input');
+      //-   var textarea = divp.getElementsByTagName('textarea');
+      //-   inputs[0].value = catalog[i].catalgTitle;
+      //-   textarea[0].value = catalog[i].catalgLink;
+      //-   console.log(inputs)
+      //- }
+    });
+    
+    $('input[id=lefile]').change(function() {
+      $('#inputImageName').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+    $('input[id=lefiles]').change(function() {
+      $('#inputImageNames').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+
+    $(".tanc-supa02").on("click", ".cp-button-default", function() {
+        //- detail_div -= 1;
+        $(this).parent().parent().parent().parent().remove();
+        
+    });
+
+    $('#hideModal').click(function() {
+      $('#confirmModal').modal('hide');
+    });
+    var detail_div = 1;
+    $('#addCatalog').click(function() {
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");
+        div.className = "form-group" + detail_div;
+        div.id = "dynamicDiv" + detail_div;
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        document.getElementById("dynamic").appendChild(div);
+        detail_div++;
+       
+    });
+
+    function deleteCatalog(val) {
+      $(val).parent().parent().parent().parent().remove();
+    };
+
+    
+    var editor;
+    KindEditor.ready(function(K) {
+      editor = K.create('textarea[name="content"]', {
+        resizeType : 1,
+        filterMode : false,
+        allowPreviewEmoticons : false,
+        allowImageUpload : true,
+        allowImageRemote: true,
+        allowFileManager:false, 
+        cssData: 'body { font-size: 15px}',//此处默认字体改为微软雅黑
+        fontSizeTable:['12px', '15px',  '18px', '24px', '32px'] ,
+        uploadJson:'/back/extendRegister/localImage',
+        filePostName: 'image',// name属性默认值
+        afterChange:function(){this.sync();},
+        afterUpload: function(){this.sync();}, 
+        afterBlur: function(){this.sync();},   
+        afterCreate : function() { this.sync(); },
+        afterBlur:function(){  this.sync(); },
+        items : [
+          'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',  'underline',
+          'removeformat', '|', 'insertorderedlist',
+          'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+      });
+    });
+
+    
+		
+		
+  script(type="text/javascript" src="/javascripts/extend-form2-validation.js")

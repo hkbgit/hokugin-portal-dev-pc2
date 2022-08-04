@@ -1,0 +1,406 @@
+INFO 2022-07-29 08:35:09.537 sessionCheck not req.cookies.sessionId!
+INFO 2022-07-29 08:35:09.550 received request URL : /back/login
+INFO 2022-07-29 08:35:29.180 received request URL : /back/login
+INFO 2022-07-29 08:35:30.827 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:35:31.023 now: 1659054931023
+INFO 2022-07-29 08:35:31.023 maxAge: 16590549306361800000
+INFO 2022-07-29 08:35:31.024 received request URL : /back/topBanners
+INFO 2022-07-29 08:35:39.097 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:35:39.284 now: 1659054939284
+INFO 2022-07-29 08:35:39.284 maxAge: 16590549306361800000
+INFO 2022-07-29 08:35:39.285 received request URL : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:35:39.285 hasProcessingRecord() called
+INFO 2022-07-29 08:36:08.846 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:36:10.867 now: 1659054970867
+INFO 2022-07-29 08:36:10.867 maxAge: 16590549306361800000
+INFO 2022-07-29 08:36:10.891 received request URL : /back/registerDefaultTopBanner/validate
+INFO 2022-07-29 08:36:10.894 deleting attached imagefile success
+INFO 2022-07-29 08:36:10.909 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:36:11.129 now: 1659054971129
+INFO 2022-07-29 08:36:11.129 maxAge: 16590549306361800000
+INFO 2022-07-29 08:36:11.134 received request URL(method: post) : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:36:11.134 hasProcessingRecord() called
+INFO 2022-07-29 08:36:14.639 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:36:14.842 now: 1659054974842
+INFO 2022-07-29 08:36:14.842 maxAge: 16590549306361800000
+INFO 2022-07-29 08:36:14.842 received request URL : /back/topBanners
+INFO 2022-07-29 08:36:15.160 received request URL : /img/cca0a92707f9dffaf76a525b68b387324037afce8645f6efd67c84122372466a.png
+INFO 2022-07-29 08:36:45.539 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:36:47.199 now: 1659055007199
+INFO 2022-07-29 08:36:47.199 maxAge: 16590549306361800000
+INFO 2022-07-29 08:36:47.199 received request URL : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:36:47.199 hasProcessingRecord() called
+INFO 2022-07-29 08:37:02.891 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:05.278 now: 1659055025278
+INFO 2022-07-29 08:37:05.278 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:05.283 received request URL : /back/registerDefaultTopBanner/validate
+INFO 2022-07-29 08:37:05.284 deleting attached imagefile success
+INFO 2022-07-29 08:37:05.298 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:05.514 now: 1659055025514
+INFO 2022-07-29 08:37:05.514 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:05.518 received request URL(method: post) : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:37:05.519 hasProcessingRecord() called
+INFO 2022-07-29 08:37:09.383 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:09.617 now: 1659055029617
+INFO 2022-07-29 08:37:09.617 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:09.617 received request URL : /back/topBanners
+INFO 2022-07-29 08:37:09.916 received request URL : /img/ee387ed8aca0325c7632a5fc193d3f04ba04ebd9f002da3e89cbe1877288a2b8.png
+INFO 2022-07-29 08:37:09.917 received request URL : /img/cca0a92707f9dffaf76a525b68b387324037afce8645f6efd67c84122372466a.png
+INFO 2022-07-29 08:37:12.442 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:12.668 now: 1659055032668
+INFO 2022-07-29 08:37:12.668 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:12.668 received request URL : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:37:12.668 hasProcessingRecord() called
+INFO 2022-07-29 08:37:27.542 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:29.302 now: 1659055049302
+INFO 2022-07-29 08:37:29.302 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:29.306 received request URL : /back/registerDefaultTopBanner/validate
+INFO 2022-07-29 08:37:29.306 deleting attached imagefile success
+INFO 2022-07-29 08:37:29.320 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:29.516 now: 1659055049516
+INFO 2022-07-29 08:37:29.516 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:29.520 received request URL(method: post) : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:37:29.520 hasProcessingRecord() called
+INFO 2022-07-29 08:37:32.981 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:33.192 now: 1659055053192
+INFO 2022-07-29 08:37:33.192 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:33.192 received request URL : /back/topBanners
+INFO 2022-07-29 08:37:33.453 received request URL : /img/4321b6b489ddc4cd9bf36303c3ebd6655b228365f339dbbac828baae05e4645c.png
+INFO 2022-07-29 08:37:33.454 received request URL : /img/ee387ed8aca0325c7632a5fc193d3f04ba04ebd9f002da3e89cbe1877288a2b8.png
+INFO 2022-07-29 08:37:33.457 received request URL : /img/cca0a92707f9dffaf76a525b68b387324037afce8645f6efd67c84122372466a.png
+INFO 2022-07-29 08:37:35.850 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:36.067 now: 1659055056067
+INFO 2022-07-29 08:37:36.067 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:36.067 received request URL : /back/registerContractTopBanner
+INFO 2022-07-29 08:37:36.067 hasProcessingRecord() called
+INFO 2022-07-29 08:37:38.176 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:38.366 now: 1659055058366
+INFO 2022-07-29 08:37:38.366 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:38.367 received request URL : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:37:38.367 hasProcessingRecord() called
+INFO 2022-07-29 08:37:56.743 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:58.244 now: 1659055078244
+INFO 2022-07-29 08:37:58.244 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:58.249 received request URL : /back/registerDefaultTopBanner/validate
+INFO 2022-07-29 08:37:58.250 deleting attached imagefile success
+INFO 2022-07-29 08:37:58.266 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:37:58.482 now: 1659055078482
+INFO 2022-07-29 08:37:58.482 maxAge: 16590549306361800000
+INFO 2022-07-29 08:37:58.486 received request URL(method: post) : /back/registerDefaultTopBanner
+INFO 2022-07-29 08:37:58.486 hasProcessingRecord() called
+INFO 2022-07-29 08:38:02.133 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:02.354 now: 1659055082354
+INFO 2022-07-29 08:38:02.355 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:02.355 received request URL : /back/topBanners
+INFO 2022-07-29 08:38:02.901 received request URL : /img/21b81240c850624df52802df3907418384b6a180b4f6cb004793af477e5baa19.png
+INFO 2022-07-29 08:38:02.901 received request URL : /img/4321b6b489ddc4cd9bf36303c3ebd6655b228365f339dbbac828baae05e4645c.png
+INFO 2022-07-29 08:38:02.905 received request URL : /img/ee387ed8aca0325c7632a5fc193d3f04ba04ebd9f002da3e89cbe1877288a2b8.png
+INFO 2022-07-29 08:38:02.905 received request URL : /img/cca0a92707f9dffaf76a525b68b387324037afce8645f6efd67c84122372466a.png
+INFO 2022-07-29 08:38:06.709 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:06.913 now: 1659055086913
+INFO 2022-07-29 08:38:06.913 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:06.913 received request URL : /back/registerContractTopBanner
+INFO 2022-07-29 08:38:06.913 hasProcessingRecord() called
+INFO 2022-07-29 08:38:24.408 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:26.195 now: 1659055106195
+INFO 2022-07-29 08:38:26.195 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:26.201 received request URL : /back/registerContractTopBanner/validate
+INFO 2022-07-29 08:38:26.202 deleting attached csvfile success
+INFO 2022-07-29 08:38:26.202 deleting attached imagefile success
+INFO 2022-07-29 08:38:26.217 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:26.437 now: 1659055106437
+INFO 2022-07-29 08:38:26.437 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:26.442 received request URL(method: post) : /back/registerContractTopBanner
+INFO 2022-07-29 08:38:26.442 hasProcessingRecord() called
+INFO 2022-07-29 08:38:34.617 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:34.816 now: 1659055114816
+INFO 2022-07-29 08:38:34.816 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:34.816 received request URL : /back/topBanners
+INFO 2022-07-29 08:38:35.106 received request URL : /img/b6cd2a009a38d657ceda55dcffd214d69ad646555dfc970a15403000d70ec57b.png
+INFO 2022-07-29 08:38:35.106 received request URL : /img/21b81240c850624df52802df3907418384b6a180b4f6cb004793af477e5baa19.png
+INFO 2022-07-29 08:38:35.110 received request URL : /img/4321b6b489ddc4cd9bf36303c3ebd6655b228365f339dbbac828baae05e4645c.png
+INFO 2022-07-29 08:38:35.110 received request URL : /img/ee387ed8aca0325c7632a5fc193d3f04ba04ebd9f002da3e89cbe1877288a2b8.png
+INFO 2022-07-29 08:38:35.110 received request URL : /img/cca0a92707f9dffaf76a525b68b387324037afce8645f6efd67c84122372466a.png
+INFO 2022-07-29 08:38:36.533 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:37.996 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:38:38.037 now: 1659055118037
+INFO 2022-07-29 08:38:38.037 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:38.038 received request URL : /back/extend
+INFO 2022-07-29 08:38:38.969 now: 1659055118969
+INFO 2022-07-29 08:38:38.969 maxAge: 16590549306361800000
+INFO 2022-07-29 08:38:38.969 received request URL : /back/extendRegister
+INFO 2022-07-29 08:39:05.788 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:07.488 now: 1659055147488
+INFO 2022-07-29 08:39:07.488 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:07.495 deleting attached imagefile success
+INFO 2022-07-29 08:39:07.496 deleting attached csvfile success
+INFO 2022-07-29 08:39:07.510 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:07.739 now: 1659055147739
+INFO 2022-07-29 08:39:07.739 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:07.745 received request URL : /back/extendRegister
+INFO 2022-07-29 08:39:09.133 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:09.354 now: 1659055149354
+INFO 2022-07-29 08:39:09.355 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:09.355 received request URL : /back/extend
+INFO 2022-07-29 08:39:09.633 received request URL : /img/aabca23b6ce1247501bf5405052001975f813cb51314c5d5956c0e7fe56c6d5c.png
+INFO 2022-07-29 08:39:09.634 received request URL : /img/07b86727ecc7ce25cef14f1609ab8c967896f660e5ebd3c31aedf90e7f881d0b.png
+INFO 2022-07-29 08:39:10.747 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:11.307 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:12.762 now: 1659055152761
+INFO 2022-07-29 08:39:12.762 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:12.762 received request URL : /back/extendRegister
+INFO 2022-07-29 08:39:12.999 now: 1659055152999
+INFO 2022-07-29 08:39:12.999 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:12.999 received request URL : /back/extend
+INFO 2022-07-29 08:39:33.558 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:35.089 now: 1659055175089
+INFO 2022-07-29 08:39:35.089 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:35.095 deleting attached imagefile success
+INFO 2022-07-29 08:39:35.095 deleting attached csvfile success
+INFO 2022-07-29 08:39:35.103 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:35.332 now: 1659055175332
+INFO 2022-07-29 08:39:35.332 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:35.338 received request URL : /back/extendRegister
+INFO 2022-07-29 08:39:36.750 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:36.982 now: 1659055176982
+INFO 2022-07-29 08:39:36.982 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:36.982 received request URL : /back/extend
+INFO 2022-07-29 08:39:37.265 received request URL : /img/aabca23b6ce1247501bf5405052001975f813cb51314c5d5956c0e7fe56c6d5c.png
+INFO 2022-07-29 08:39:37.265 received request URL : /img/07b86727ecc7ce25cef14f1609ab8c967896f660e5ebd3c31aedf90e7f881d0b.png
+INFO 2022-07-29 08:39:37.268 received request URL : /img/2787db733dcf5f95b7b97275a55b6e15ea0f15b71a60f8bb7871a794ef74d8a2.png
+INFO 2022-07-29 08:39:37.268 received request URL : /img/edaf57d87612aa9f15b42d06cc0939280de418c8afab83326dc35898794d9d81.png
+INFO 2022-07-29 08:39:39.850 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:39:40.067 now: 1659055180067
+INFO 2022-07-29 08:39:40.067 maxAge: 16590549306361800000
+INFO 2022-07-29 08:39:40.067 received request URL : /back/extendRegister/discussAdd
+INFO 2022-07-29 08:40:15.980 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:40:17.509 now: 1659055217509
+INFO 2022-07-29 08:40:17.509 maxAge: 16590549306361800000
+INFO 2022-07-29 08:40:17.513 received request URL : /back/extendRegister/localImage?dir=image
+INFO 2022-07-29 08:40:18.425 received request URL : /img/04d1c216dc4279a2c5de69c35d17d8b2fa71f1c2e391777f308cfc38d302aed7.png
+INFO 2022-07-29 08:40:40.464 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:40:41.996 now: 1659055241996
+INFO 2022-07-29 08:40:41.996 maxAge: 16590549306361800000
+INFO 2022-07-29 08:40:41.999 received request URL : /back/extendRegister/localImage?dir=image
+INFO 2022-07-29 08:40:42.231 received request URL : /img/6d1e990d6d99dfccd70f5671fb3d0f09c907460a716a6533e9272d6e766c0b26.png
+INFO 2022-07-29 08:40:56.417 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:40:58.532 now: 1659055258532
+INFO 2022-07-29 08:40:58.532 maxAge: 16590549306361800000
+INFO 2022-07-29 08:40:58.534 received request URL : /back/extendRegister/localImage?dir=image
+INFO 2022-07-29 08:40:59.521 received request URL : /img/7c3b7f5a215c67373dbffeb13e0f377d08a9aad1e7cf8311b2ef78868f6549a9.png
+INFO 2022-07-29 08:41:32.193 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:34.050 now: 1659055294050
+INFO 2022-07-29 08:41:34.050 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:34.067 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:34.287 now: 1659055294287
+INFO 2022-07-29 08:41:34.287 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:34.290 received request URL : /back/extendRegister/discussAdd
+INFO 2022-07-29 08:41:34.507 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:34.713 now: 1659055294713
+INFO 2022-07-29 08:41:34.713 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:34.714 received request URL : /back/extend/discussList
+INFO 2022-07-29 08:41:35.009 received request URL : /img/04d1c216dc4279a2c5de69c35d17d8b2fa71f1c2e391777f308cfc38d302aed7.png
+INFO 2022-07-29 08:41:35.009 received request URL : /img/7c3b7f5a215c67373dbffeb13e0f377d08a9aad1e7cf8311b2ef78868f6549a9.png
+INFO 2022-07-29 08:41:42.466 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:42.688 now: 1659055302688
+INFO 2022-07-29 08:41:42.688 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:42.688 received request URL : /back/comment
+INFO 2022-07-29 08:41:44.084 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:44.308 now: 1659055304308
+INFO 2022-07-29 08:41:44.308 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:44.308 received request URL : /back/commentRegister
+INFO 2022-07-29 08:41:49.278 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:49.507 now: 1659055309507
+INFO 2022-07-29 08:41:49.507 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:49.507 received request URL : /back/kyara
+INFO 2022-07-29 08:41:52.355 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:41:52.579 now: 1659055312579
+INFO 2022-07-29 08:41:52.579 maxAge: 16590549306361800000
+INFO 2022-07-29 08:41:52.579 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:10.429 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:11.940 now: 1659055331940
+INFO 2022-07-29 08:42:11.940 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:11.944 deleting attached imagefile success
+INFO 2022-07-29 08:42:11.960 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:12.172 now: 1659055332172
+INFO 2022-07-29 08:42:12.172 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:12.174 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:12.620 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:12.835 now: 1659055332835
+INFO 2022-07-29 08:42:12.836 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:12.836 received request URL : /back/kyara
+INFO 2022-07-29 08:42:13.098 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:42:15.705 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:15.922 now: 1659055335922
+INFO 2022-07-29 08:42:15.923 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:15.923 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:32.462 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:34.580 now: 1659055354579
+INFO 2022-07-29 08:42:34.580 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:34.583 deleting attached imagefile success
+INFO 2022-07-29 08:42:34.599 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:35.105 now: 1659055355105
+INFO 2022-07-29 08:42:35.106 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:35.108 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:35.570 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:35.775 now: 1659055355775
+INFO 2022-07-29 08:42:35.775 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:35.775 received request URL : /back/kyara
+INFO 2022-07-29 08:42:36.042 received request URL : /img/0269cd4ba5e1a08a67c7ead6bcaf5745f32b03b8a4da6adb414bdb48d9e1d849.png
+INFO 2022-07-29 08:42:36.043 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:42:37.109 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:37.330 now: 1659055357330
+INFO 2022-07-29 08:42:37.330 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:37.330 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:47.771 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:47.988 now: 1659055367988
+INFO 2022-07-29 08:42:47.988 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:47.991 deleting attached imagefile success
+INFO 2022-07-29 08:42:47.998 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:48.214 now: 1659055368214
+INFO 2022-07-29 08:42:48.214 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:48.216 received request URL : /back/kyaraRegister
+INFO 2022-07-29 08:42:48.658 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:48.875 now: 1659055368875
+INFO 2022-07-29 08:42:48.875 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:48.875 received request URL : /back/kyara
+INFO 2022-07-29 08:42:49.143 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:42:49.144 received request URL : /img/0269cd4ba5e1a08a67c7ead6bcaf5745f32b03b8a4da6adb414bdb48d9e1d849.png
+INFO 2022-07-29 08:42:49.147 received request URL : /img/63baa912c7a0ecd34e24e9864b71b5dfc26ceb50a56e964c4524717cf8006832.png
+INFO 2022-07-29 08:42:52.358 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:42:52.568 now: 1659055372568
+INFO 2022-07-29 08:42:52.569 maxAge: 16590549306361800000
+INFO 2022-07-29 08:42:52.569 received request URL : /back/commentRegister
+INFO 2022-07-29 08:43:20.555 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:22.370 now: 1659055402370
+INFO 2022-07-29 08:43:22.370 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:22.386 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:22.602 now: 1659055402602
+INFO 2022-07-29 08:43:22.602 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:22.603 received request URL : /back/commentRegister
+INFO 2022-07-29 08:43:22.827 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:23.041 now: 1659055403041
+INFO 2022-07-29 08:43:23.041 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:23.041 received request URL : /back/comment
+INFO 2022-07-29 08:43:23.306 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:43:25.841 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:26.065 now: 1659055406065
+INFO 2022-07-29 08:43:26.065 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:26.066 received request URL : /back/commentRegister
+INFO 2022-07-29 08:43:36.261 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:36.482 now: 1659055416482
+INFO 2022-07-29 08:43:36.482 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:36.491 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:36.730 now: 1659055416730
+INFO 2022-07-29 08:43:36.730 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:36.731 received request URL : /back/commentRegister
+INFO 2022-07-29 08:43:36.955 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:37.879 now: 1659055417879
+INFO 2022-07-29 08:43:37.879 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:37.879 received request URL : /back/comment
+INFO 2022-07-29 08:43:38.195 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:43:38.195 received request URL : /img/0269cd4ba5e1a08a67c7ead6bcaf5745f32b03b8a4da6adb414bdb48d9e1d849.png
+INFO 2022-07-29 08:43:39.792 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:43:40.037 now: 1659055420037
+INFO 2022-07-29 08:43:40.037 maxAge: 16590549306361800000
+INFO 2022-07-29 08:43:40.037 received request URL : /back/commentRegister
+INFO 2022-07-29 08:44:00.156 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:44:03.324 now: 1659055443324
+INFO 2022-07-29 08:44:03.324 maxAge: 16590549306361800000
+INFO 2022-07-29 08:44:03.341 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:44:03.562 now: 1659055443562
+INFO 2022-07-29 08:44:03.562 maxAge: 16590549306361800000
+INFO 2022-07-29 08:44:03.562 received request URL : /back/commentRegister
+INFO 2022-07-29 08:44:03.788 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:44:04.010 now: 1659055444010
+INFO 2022-07-29 08:44:04.010 maxAge: 16590549306361800000
+INFO 2022-07-29 08:44:04.010 received request URL : /back/comment
+INFO 2022-07-29 08:44:04.314 received request URL : /img/d75fc6ad765ff775456ff7d6638ed3d0c808fe83ffaeabd8bebf6e9336e0e9b1.png
+INFO 2022-07-29 08:44:04.315 received request URL : /img/0269cd4ba5e1a08a67c7ead6bcaf5745f32b03b8a4da6adb414bdb48d9e1d849.png
+INFO 2022-07-29 08:44:04.317 received request URL : /img/63baa912c7a0ecd34e24e9864b71b5dfc26ceb50a56e964c4524717cf8006832.png
+INFO 2022-07-29 08:48:35.263 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:35.892 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:36.824 now: 1659055716824
+INFO 2022-07-29 08:48:36.825 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:36.825 received request URL : /back/tairu
+INFO 2022-07-29 08:48:40.614 now: 1659055720614
+INFO 2022-07-29 08:48:40.614 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:40.615 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:48:42.762 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:42.987 now: 1659055722987
+INFO 2022-07-29 08:48:42.987 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:42.988 received request URL : /back/password
+INFO 2022-07-29 08:48:50.685 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:50.904 now: 1659055730904
+INFO 2022-07-29 08:48:50.904 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:50.904 received request URL : /back/password/validate
+INFO 2022-07-29 08:48:50.912 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:51.134 now: 1659055731134
+INFO 2022-07-29 08:48:51.135 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:51.135 received request URL : /back/password
+INFO 2022-07-29 08:48:51.355 updateSession start 
+INFO 2022-07-29 08:48:54.688 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:48:54.891 now: 1659055734891
+INFO 2022-07-29 08:48:54.891 maxAge: 16590549306361800000
+INFO 2022-07-29 08:48:54.891 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:49:06.895 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:49:09.274 now: 1659055749274
+INFO 2022-07-29 08:49:09.274 maxAge: 16590549306361800000
+INFO 2022-07-29 08:49:09.286 deleting attached imagefile success
+INFO 2022-07-29 08:49:09.296 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:49:09.517 now: 1659055749517
+INFO 2022-07-29 08:49:09.517 maxAge: 16590549306361800000
+INFO 2022-07-29 08:49:09.520 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:49:09.977 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:49:10.179 now: 1659055750179
+INFO 2022-07-29 08:49:10.180 maxAge: 16590549306361800000
+INFO 2022-07-29 08:49:10.180 received request URL : /back/tairu
+INFO 2022-07-29 08:49:10.457 received request URL : /img/ccc5eedc0e221955c4f8c772023c062daeb0e993f8904ab9eb1b85d8853d75d6.png
+INFO 2022-07-29 08:54:09.663 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:54:11.934 now: 1659056051934
+INFO 2022-07-29 08:54:11.934 maxAge: 16590549306361800000
+INFO 2022-07-29 08:54:11.935 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:54:26.022 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:54:28.658 now: 1659056068658
+INFO 2022-07-29 08:54:28.658 maxAge: 16590549306361800000
+INFO 2022-07-29 08:54:28.663 deleting attached imagefile success
+INFO 2022-07-29 08:54:28.673 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:54:28.894 now: 1659056068894
+INFO 2022-07-29 08:54:28.894 maxAge: 16590549306361800000
+INFO 2022-07-29 08:54:28.897 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:54:30.106 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:54:30.613 now: 1659056070613
+INFO 2022-07-29 08:54:30.613 maxAge: 16590549306361800000
+INFO 2022-07-29 08:54:30.613 received request URL : /back/tairu
+INFO 2022-07-29 08:54:30.921 received request URL : /img/ccc5eedc0e221955c4f8c772023c062daeb0e993f8904ab9eb1b85d8853d75d6.png
+INFO 2022-07-29 08:54:30.924 received request URL : /img/07e887bf6281b1bf43c7110602b082db339fbf0d0dd83ed5dfccc04c8d1d871a.png
+INFO 2022-07-29 08:54:40.557 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:54:40.777 now: 1659056080777
+INFO 2022-07-29 08:54:40.777 maxAge: 16590549306361800000
+INFO 2022-07-29 08:54:40.777 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:55:30.476 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:55:32.036 now: 1659056132036
+INFO 2022-07-29 08:55:32.036 maxAge: 16590549306361800000
+INFO 2022-07-29 08:55:32.041 deleting attached imagefile success
+INFO 2022-07-29 08:55:32.051 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:55:32.272 now: 1659056132272
+INFO 2022-07-29 08:55:32.272 maxAge: 16590549306361800000
+INFO 2022-07-29 08:55:32.275 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:55:32.719 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:55:32.943 now: 1659056132943
+INFO 2022-07-29 08:55:32.943 maxAge: 16590549306361800000
+INFO 2022-07-29 08:55:32.943 received request URL : /back/tairu
+INFO 2022-07-29 08:55:33.245 received request URL : /img/ccc5eedc0e221955c4f8c772023c062daeb0e993f8904ab9eb1b85d8853d75d6.png
+INFO 2022-07-29 08:55:33.247 received request URL : /img/07e887bf6281b1bf43c7110602b082db339fbf0d0dd83ed5dfccc04c8d1d871a.png
+INFO 2022-07-29 08:55:33.250 received request URL : /img/b5782f8f0c22cd348bbf3e3896a87ebfc13da8d688db2a4b49844dbe53b62a41.png
+INFO 2022-07-29 08:56:15.492 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:56:17.014 now: 1659056177014
+INFO 2022-07-29 08:56:17.014 maxAge: 16590549306361800000
+INFO 2022-07-29 08:56:17.014 received request URL : /back/tairuRegister
+INFO 2022-07-29 08:57:09.772 sessionCheck req.cookies.sessionId: 58abd5c00ed611ed8184bf1c14782fde
+INFO 2022-07-29 08:57:12.208 now: 1659056232208
+INFO 2022-07-29 08:57:12.208 maxAge: 16590549306361800000
+INFO 2022-07-29 08:57:12.208 received request URL : /back/tairu
+INFO 2022-07-29 08:57:12.478 received request URL : /img/ccc5eedc0e221955c4f8c772023c062daeb0e993f8904ab9eb1b85d8853d75d6.png
+INFO 2022-07-29 08:57:12.479 received request URL : /img/07e887bf6281b1bf43c7110602b082db339fbf0d0dd83ed5dfccc04c8d1d871a.png
+INFO 2022-07-29 08:57:12.483 received request URL : /img/b5782f8f0c22cd348bbf3e3896a87ebfc13da8d688db2a4b49844dbe53b62a41.png

@@ -1,0 +1,285 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+  script(src='/moment/min/moment.min.js')
+  script(src='/moment/locale/ja.js')
+  script(src='/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+  script.
+    $(function () {
+      $('.datetimepicker').datetimepicker({
+          locale: 'ja',
+          format : 'YYYY/MM/DD HH:mm'
+      });
+    });
+  include navigation
+  div.container
+    if title
+      h1= title
+    p (※)は必須入力です
+    if error
+      div.alert.alert-danger
+        p= error
+    div#errorMessage
+      p
+    //- mixin extendForm(name, action)
+    form#extendForm(name="registerExtend" method="post" action="/back/extendRegister" enctype="multipart/form-data")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputTitle") タイトル（※）
+          div.col-sm-3
+            if extendInfo
+              input.form-control#inputTitle(type="text" name="title"  maxlength="255" value= extendInfo.title)
+            else
+              input.form-control#inputTitle(type="text" name="title"  maxlength="255")
+        div.row
+          label.col-sm-12.control-label#errorTitle(for="inputTitle")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputSmalTitle") サブタイトル（※）
+          div.col-sm-3
+            if extendInfo
+              input.form-control#inputSmalTitle(type="text" name="smalTitle"  maxlength="255" value= extendInfo.smalTitle)
+            else
+              input.form-control#inputSmalTitle(type="text" name="smalTitle"  maxlength="255")
+        div.row
+          label.col-sm-12.control-label#errorSmalTitle(for="inputSmalTitle")       
+      div.form-group
+        div.row
+          label.col-sm-2.control-label イメージ（※）幅以下 1125
+          div.col-sm-3  
+            input#lefile(type="file" style="display:none" name="image")
+            div.input-group
+              if extendInfo
+                input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" value= extendInfo.image_path readonly)
+              else
+                input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" readonly)
+              span.input-group-addon(onclick="$('input[id=lefile]').click();")
+                span.glyphicon.glyphicon-picture
+        div.row
+          label.col-sm-12.control-label#errorImageName(for="inputImageName")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label コラムの詳細（※）100*100
+          div.col-sm-3  
+            input#lefiles(type="file" style="display:none" name="csv")
+            div.input-group
+              if extendInfo
+                input.form-control#inputImageNames(type="text" placeholder="select file..." name="imageNames" value= extendInfo.image_path1 readonly)
+              else
+                input.form-control#inputImageNames(type="text" placeholder="select file..." name="imageNames" readonly)
+              span.input-group-addon(onclick="$('input[id=lefiles]').click();")
+                span.glyphicon.glyphicon-picture
+        div.row
+          label.col-sm-12.control-label#errorImageNames(for="inputImageNames")         
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputPublishDateTimeStart") 表示開始日時
+          div.col-sm-3
+            div.input-group.datetimepicker
+              if extendInfo
+                input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" value= extendInfo.publish_datetime_start placeholder="YYYY/MM/DD hh:mm")              
+              else
+                input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" placeholder="YYYY/MM/DD hh:mm")
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
+          label.col-sm-2.control-label(for="inputPublishDateTimeEnd") 表示終了日時
+          div.col-sm-3
+            div.input-group.datetimepicker
+              if extendInfo
+                input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" value= extendInfo.publish_datetime_end placeholder="YYYY/MM/DD hh:mm")
+              else
+                input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" placeholder="YYYY/MM/DD hh:mm")
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
+        div.row
+          label.col-sm-12.control-label#errorPublishDateTimeStart(for="inputPublishDateTimeStart")
+        div.row
+          label.col-sm-12.control-label#errorPublishDateTimeEnd(for="inputPublishDateTimeEnd")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputPriority") 表示優先順位
+          div.col-sm-2
+            if extendInfo
+              input.form-control#inputPriority(type="text" name="priority"  maxlength="10" value= extendInfo.priority)
+            else
+              input.form-control#inputPriority(type="text" name="priority"  maxlength="10")
+        div.row
+          label.col-sm-12.control-label#errorPriority(for="inputPriority")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputComment") 説明文 21844字以下
+          div.col-sm-8
+            if extendInfo
+              textarea.form-control#inputComment(type="text" name="comment" rows="5") #{extendInfo.comment}
+            else
+              textarea.form-control#inputComment(type="text" name="comment" rows="5")
+        div.row
+          label.col-sm-12.control-label#errorComment(for="inputComment")
+      //- div#dynamic
+      //-   div(id='dynamicDiv' style='display:none')
+      //-     div.form-group
+      //-       div.row
+      //-         label.col-sm-2.control-label() 目次
+      //-         div.col-sm-8
+      //-           button.btn.btn-primary(type='button' onclick='deleteCatalog(this)') 削除
+      //-     div.form-group
+      //-       div.row
+      //-         label.col-sm-2.control-label(for="inputCatalog") タイトル（※）
+      //-         div.col-sm-3
+      //-           if extendInfo
+      //-             input.form-control#inputCatalog(type="text" name="catalogTitle"  maxlength="1024")
+      //-           else
+      //-             input.form-control#inputCatalog(type="text" name="catalogTitle"  maxlength="1024")
+      //-       div.row
+      //-         label.col-sm-12.control-label#errorCatalogTitle(for="inputCatalog")
+      //-     div.form-group
+      //-       div.row
+      //-         label.col-sm-2.control-label(for="inputLink") 説明文
+      //-         div.col-sm-3
+      //-           if extendInfo
+      //-             textarea.form-control#inputLink(type="text" name="catalogLink"  row="2")
+      //-           else
+      //-             textarea.form-control#inputLink(type="text" name="cataloglink"  row="2")
+      //-       div.row
+      //-         label.col-sm-12.control-label#errorLink(for="inputLink")
+
+      //- div.form-group
+      //-   div.row
+      //-     button#addCatalog.btn.btn-primary(type='button') ディレクトリを追加
+      div.form-group.row
+        div.col-sm-2.col-sm-offset-5
+          if extendInfo
+            input(type="hidden" id="asd" value= extendInfo.catalog)
+            input(type="hidden" name="extendId" value= extendInfo.id)
+          button.btn.btn-primary(data-toggle="modal" data-target="#confirmModal" onclick="return false;") 登録確認
+          div#confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            div.modal-dialog(role='document')
+              div.modal-content
+                div.modal-header
+                  h4#exampleModalLabel.modal-title 登録内容確認
+                div.modal-body
+                  | この内容で登録します
+                div.modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') キャンセル
+                  button#hideModal.btn.btn-primary(type='submit') 登録
+  script.
+   $(document).ready(function(){
+      var catalog = eval($('#asd').attr('value'));
+      for(var i = 0; i < catalog.length; i++){
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        div.className = "form-group" + i;
+        div.id = "dynamicDiv" + i;
+        document.getElementById("dynamic").appendChild(div);
+        var divp = document.getElementById('dynamicDiv'+i);
+        var inputs = divp.getElementsByTagName('input');
+        var textarea = divp.getElementsByTagName('textarea');
+        inputs[0].value = catalog[i].catalgTitle;
+        textarea[0].value = catalog[i].catalgLink;
+        console.log(inputs)
+      }
+    });
+    
+    $('input[id=lefile]').change(function() {
+      $('#inputImageName').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+    $('input[id=lefiles]').change(function() {
+      $('#inputImageNames').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+
+    $(".tanc-supa02").on("click", ".cp-button-default", function() {
+        //- detail_div -= 1;
+        $(this).parent().parent().parent().parent().remove();
+        
+    });
+
+
+
+
+    $('#hideModal').click(function() {
+      $('#confirmModal').modal('hide');
+    });
+    var detail_div = 1;
+    $('#addCatalog').click(function() {
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");
+        div.className = "form-group" + detail_div;
+        div.id = "dynamicDiv" + detail_div;
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        document.getElementById("dynamic").appendChild(div);
+        detail_div++;
+        
+        //-  var dynamic = document.getElementById("dynamic"); onclick='deleteCatalog(this)'
+        //-  var innerHTMLS = "<div id='dynamicDiv"+detail_div+"' >"+
+        //-                     "<div class='form-group' >"+
+        //-                       "<div class='row' >"+
+        //-                           "<lable class='col-sm-2 control-label' >目次</lable>"+
+        //-                           "<div class='col-sm-8' >"+
+        //-                               "<button class='btn btn-primary cancel-button cp-button-default' type='button'  >削除</button>"+
+        //-                           "</div>"+
+        //-                       "</div>"+
+        //-                     "</div>"+
+        //-                     "<div class='form-group' >"+
+        //-                       "<div class='row' >"+
+        //-                         "<lable class='col-sm-2 control-label' >タイトル（※）</lable>"+
+        //-                         "<div class='col-sm-3' >"+
+        //-                           "<input class='form-control' id='inputCatalog"+detail_div+"' name='catalogTitle' type='text' >"+
+        //-                         "</div>"+
+        //-                       "</div>"+
+        //-                     "</div>"+
+        //-                     "<div class='form-group' >"+
+        //-                       "<div class='row' >"+
+        //-                         "<lable class='col-sm-2 control-label' >タイトル（※）</lable>"+
+        //-                         "<div class='col-sm-3' >"+
+        //-                           "<input id='directory"+detail_div+"' type='file' style='display:none' name='directory"+detail_div+"' >"+
+        //-                           "<div class='input-group' >"+
+        //-                             "<input class='form-control' id='directoryImageNames"+detail_div+"' type='text' placeholder='select file...' name='directoryNames"+detail_div+"' readonly>"+
+        //-                             "<span class='input-group-addon' onclick=\"$('input[id=directory"+detail_div+"]').click();\" >"+
+        //-                               "<span class='glyphicon glyphicon-picture' ></span>"+
+        //-                             "</span>"+
+        //-                           "</div>"+
+        //-                          "</div>"+                               
+        //-                       "</div>"+
+        //-                       "<div class='row' >"+
+        //-                         "<lable class='col-sm-12 control-label' id='errorImageNames"+detail_div+"'  ></lable>"+
+        //-                       "</div>"+
+        //-                     "</div>"+
+        //-                     "<div class='form-group' >"+
+        //-                       "<div class='row' >"+
+        //-                         "<lable class='col-sm-2 control-label'  >説明文</lable>"+
+        //-                         "<div class='col-sm-3' >"+
+        //-                           "<textarea class='form-control' id='inputLink"+detail_div+"' name='cataloglink' type='text' row='2' ></textarea>"+
+        //-                         "</div>"+
+
+        //-                       "</div>"+
+        //-                       "<div class='row' >"+
+        //-                         "<lable class='col-sm-12 control-label' id='errorLink"+detail_div+"' ></lable>"+
+        //-                       "</div>"+
+        //-                     "</div>"+
+
+
+
+        //-                   "</div>";
+
+        //-   $(".tanc-supa02").append(innerHTMLS);
+       
+        //-   $("input[id=directory"+detail_div+"]").change(function() {
+        //-     $("#directoryImageNames"+(detail_div-1)+"").val($(this).val().replace(/C:\\fakepath\\/g ,""));
+        //-   });
+
+        //-   detail_div++;
+
+
+        
+    });
+
+
+
+    function deleteCatalog(val) {
+      $(val).parent().parent().parent().parent().remove();
+    };
+  script(type="text/javascript" src="/javascripts/extend-form-validation.js")

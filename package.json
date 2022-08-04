@@ -1,0 +1,37 @@
+{
+  "name": "hokuriku",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha",
+    "build": "npm install bower -g && npm install && npm i && bower install",
+    "dev-settings": "python dev/change-constants.py constants.js",
+    "init-dev": "npm run build && npm run dev-settings && npm start"
+  },
+  "dependencies": {
+    "@cloudant/cloudant": "^4.3.0",
+    "array-foreach-async": "^1.0.1",
+    "body-parser": "~1.18.2",
+    "cloudant": "^1.10.0-NOTICE",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.17.1",
+    "express-session": "^1.15.6",
+    "fs-extra": "^8.1.0",
+    "image-size": "^0.6.2",
+    "log4js": "^6.6.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.3.0",
+    "mysql": "^2.15.0",
+    "pg": "^8.7.1",
+    "pg-pool": "^3.4.1",
+    "promise-mysql": "^4.1.3",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^8.2.1",
+    "supertest": "^3.0.0"
+  }
+}

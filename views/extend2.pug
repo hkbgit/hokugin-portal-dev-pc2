@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  style.
+    p{
+      margin: 0 0 0 0;
+    }
+  include navigation
+  div.container
+    h1= title
+    if error
+      div.alert.alert-danger
+        p= error
+    table#bannerList.table
+      thead.thead-default
+        tr
+          th #
+          th.col-sm-2 大見出し
+          th.col-sm-2 サブタイトル
+          th.col-sm-2 表示優先順位
+          th(style="width:325px") 説明文
+          th
+          th
+      tbody
+        if topBanners
+          each topBanner in topBanners
+            tr
+              td= topBanner.number
+              td= topBanner.title
+              td= topBanner.sub_title
+              td= topBanner.priority
+              td
+                .div(style="width:325px;word-break: break-all;")
+                  p !{topBanner.content}
+               
+              td
+                form(action="/back/extend/update2" method="get")
+                  button.btn.btn-success(type="submit" name="targetId" value= topBanner.id) 編集
+              td
+                form(action="/back/extend/delete2" method="post")
+                  div.form-group
+                    input(type="hidden" name="targetId" value= topBanner.id)
+
+                    button.btn.btn-danger(onclick="return toggleModal($(this).closest('.form-group').find('.confirmModal'))") 削除
+                    div.confirmModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+                      div.modal-dialog(role="document")
+                        div.modal-content
+                          div.modal-header
+                            h4#exampleModalLabel.modal-title 削除確認
+                          div.modal-body コラム目次情報は復元できません。削除します。
+                          div.modal-footer
+                            button.btn.btn-secondary(type="button" data-dismiss="modal") キャンセル
+                            button.btn.btn-danger(type="submit") 削除
+    div.paging
+  script.
+    $('#bannerList').datatable({
+    pageSize: 20,
+    sort: [true, true, true, true, true, false],
+    filters: [false, 'select', false, false, false, false],
+    });
+    toggleModal = function(selecter) {
+    console.log(selecter);
+    selecter.modal('toggle');
+    // submit防止の為falseを返却
+    return false;
+    }

@@ -1,0 +1,202 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+  script(src='/moment/min/moment.min.js')
+  script(src='/moment/locale/ja.js')
+  script(src='/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+  script.
+    $(function () {
+      $("#selectTopBannerAttribute").on("change",function () {
+        if($("#selectTopBannerAttribute").val() == "1"){
+          $("#message").html("イメージ（※）ピックアップ(343*112)");
+
+        } else if ($("#selectTopBannerAttribute").val() == "2") {
+          $("#message").html("イメージ（※）おすすめコンテンツ(128*183)");
+
+        } else {
+          $("#message").html("イメージ（※）");
+        }
+      });
+
+      $('.datetimepicker').datetimepicker({
+          locale: 'ja',
+          format : 'YYYY/MM/DD HH:mm'
+      });
+    });
+  include navigation
+  .container
+    if title
+      h1= title
+    p (※)は必須入力です
+    if error
+      div.alert.alert-danger
+        p= error
+    div#errorMessage
+      p
+    - var contractTopBanner = 0;
+    - var defaultTopBanner = 1;
+    mixin topBannerForm(name, action)
+      // バナー情報入力エリアテンプレ
+      form#topBannerForm(name=name method="post" action=action enctype="multipart/form-data")
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="inputTitle") タイトル（※）
+            .col-sm-3
+              if bannerInfo
+                input.form-control#inputTitle(type="text" name="title"  maxlength="255" value= bannerInfo.title)
+              else
+                input.form-control#inputTitle(type="text" name="title"  maxlength="255")
+          .row
+            label#errorTitle.col-sm-12.control-label(for="inputTitle")
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="selectTopBannerAttribute") バナー種類（※）
+            .col-sm-3
+              select.form-control#selectTopBannerAttribute(name="topBannerAttribute")
+                option(value= "")
+                each topBannerAttribute in topBannerAttributes
+                  if bannerInfo
+                    if bannerInfo.top_banner_attribute_id == topBannerAttribute.id
+                      option(value= topBannerAttribute.id selected) #{topBannerAttribute.name}
+                    else
+                      option(value= topBannerAttribute.id) #{topBannerAttribute.name}
+                  else
+                    option(value= topBannerAttribute.id) #{topBannerAttribute.name}
+          .row
+            label#errorTopBannerAttribute.col-sm-12.control-label(for="selectTopBannerAttribute")
+        .form-group
+          .row
+            label#message.col-sm-2.control-label イメージ（※）
+            .col-sm-3
+              input#lefile(type="file" style="display:none;" name="image")
+              .input-group
+                if bannerInfo
+                  input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" value= bannerInfo.image_path readonly)
+                else
+                  input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" readonly)
+                span.input-group-addon(onclick="$('input[id=lefile]').click();")
+                  span.glyphicon.glyphicon-picture
+          .row
+            label#errorImageName.col-sm-12.control-label(for="inputImageName")
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="inputLink") リンク先URL
+            .col-sm-3
+              if bannerInfo
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024" value=bannerInfo.link)
+              else
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024")
+          .row
+            label#errorLink.col-sm-12.control-label(for="inputLink")
+        // csvファイル入力エリア
+        mixin csvupload
+          .form-group
+            .row
+              label.col-sm-2.control-label 契約者通番csv登録（※）
+              .col-sm-3
+                input#csvfile(type="file" style="display:none;" name="csv")
+                .input-group
+                  if bannerInfo
+                    input#inputCsvName.form-control(type="text" placeholder="select file..." name="csvName" value=bannerInfo.connected_csv readonly)
+                  else
+                    input#inputCsvName.form-control(type="text" placeholder="select file..." name="csvName" readonly="readonly" )
+                  span.input-group-addon(onclick="$('input[id=csvfile]').click();")
+                    span.glyphicon.glyphicon-folder-open
+            .row
+              label#errorCsvName.col-sm-12.control-label(for="inputCsvName")
+        if bannerInfo
+          if bannerInfo.is_default === defaultTopBanner
+          else if bannerInfo.is_default === contractTopBanner
+            +csvupload
+        else
+          if is_default === defaultTopBanner
+          else if is_default === contractTopBanner
+            +csvupload
+        // /csvファイル入力エリア
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="inputPublishDateTimeStart") 表示開始日時
+            .col-sm-3
+              .input-group.datetimepicker
+                if bannerInfo
+                  input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" value= bannerInfo.publish_datetime_start placeholder="YYYY/MM/DD hh:mm")
+                else
+                  input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" placeholder="YYYY/MM/DD hh:mm")
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
+            label.col-sm-2.control-label(for="inputPublishDateTimeEnd") 表示終了日時
+            .col-sm-3
+              .input-group.datetimepicker
+                if bannerInfo
+                  input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" value= bannerInfo.publish_datetime_end placeholder="YYYY/MM/DD hh:mm")
+                else
+                  input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" placeholder="YYYY/MM/DD hh:mm")
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
+          .row
+            label#errorPublishDateTimeStart.col-sm-12.control-label(for="inputPublishDateTimeStart")
+          .row
+            label#errorPublishDateTimeEnd.col-sm-12.control-label(for="inputPublishDateTimeEnd")
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="inputPriority") 表示優先順位
+            .col-sm-2
+              if bannerInfo
+                input.form-control#inputPriority(type="text" name="priority"  maxlength="10" value= bannerInfo.priority)
+              else
+                input.form-control#inputPriority(type="text" name="priority"  maxlength="10")
+          .row
+            label#errorPriority.col-sm-12.control-label(for="inputPriority")
+        .form-group
+          .row
+            label.col-sm-2.control-label(for="inputComment") 備考
+            .col-sm-8
+              if bannerInfo
+                textarea.form-control#inputComment(type="text" name="comment" rows="5") #{bannerInfo.comment}
+              else
+                textarea.form-control#inputComment(type="text" name="comment" rows="5")
+          .row
+            label#errorComment.col-sm-12.control-label(for="inputComment")
+        .form-group.row
+          .col-sm-2.col-sm-offset-5
+            // バナー配置場所入力（TOPバナーは配置場所が一箇所なので、hiddenに設定）
+            input(type="hidden" name="bannerPosition" value= "7")
+            if bannerInfo
+              input(type="hidden" name="topBannerId" value= bannerInfo.id)
+              input(type="hidden" name="is_default" value= bannerInfo.is_default)
+            else
+              input(type="hidden" name="is_default" value= is_default)
+            button.btn.btn-primary(data-toggle="modal" data-target="#confirmModal" onclick="return false;") 登録確認
+            div#confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+              div.modal-dialog(role='document')
+                div.modal-content
+                  div.modal-header
+                    h4#exampleModalLabel.modal-title 登録内容確認
+                  div.modal-body
+                    | この内容で登録します
+                  div.modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') キャンセル
+                    button#hideModal.btn.btn-primary(type='submit') 登録
+        // /バナー情報入力エリアテンプレ
+    if bannerInfo
+      if bannerInfo.is_default === defaultTopBanner
+        +topBannerForm('registerDefaultTopBanner', '/back/registerDefaultTopBanner')
+      else if bannerInfo.is_default === contractTopBanner
+        +topBannerForm('registerContractTopBanner', '/back/registerContractTopBanner')
+    else
+      if is_default === defaultTopBanner
+        +topBannerForm('registerDefaultTopBanner', '/back/registerDefaultTopBanner')
+      else if is_default === contractTopBanner
+        +topBannerForm('registerContractTopBanner', '/back/registerContractTopBanner')
+  script.
+    $('input[id=lefile]').change(function() {
+      $('#inputImageName').val($(this).val().replace(/C:\\\fakepath\\/g, ""));
+    });
+    $('#hideModal').click(function() {
+      $('#confirmModal').modal('hide');
+    });
+    $('input[id=csvfile]').change(function() {
+      $('#inputCsvName').val($(this).val().replace(/C:\\\fakepath\\/g, ""));
+    });
+  script(type="text/javascript" src="/javascripts/top-banner-form-validation.js")

@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  include navigation
+  div.container
+    h1= title
+    if error
+      div.alert.alert-danger
+        p= error
+    table#bannerList.table
+      thead.thead-default
+        tr
+          th #
+          th.col-sm-1 タイトル
+          th.col-sm-1 サブタイトル
+          th.col-sm-1 プレビュー
+          th.col-sm-1 コラムの詳細
+          th.col-sm-1 説明文
+          th.col-sm-1 サブタイトルを含む
+          th.col-sm-1 表示開始日時
+          th.col-sm-1 表示終了日時
+          th.col-sm-1 表示優先順位
+          th.col-sm-1 最終更新者
+          th.col-sm-1 最終更新日
+          th  
+          th  
+      tbody
+        if topBanners
+          each topBanner in topBanners
+            tr
+              td= topBanner.number
+              td= topBanner.title
+              td= topBanner.smalTitle
+              td
+                img.img-thumbnail(src=topBanner.image_path alt="※画像ファイルなし" style="width:100%;")
+              td
+                img.img-thumbnail(src=topBanner.image_path1 alt="※画像ファイルなし" style="width:100%;")
+              td 
+                p(style="word-wrap:break-word;word-break:break-all;")=topBanner.comment
+              td= topBanner.subtitle
+              td= topBanner.publish_datetime_start
+              td= topBanner.publish_datetime_end
+              td= topBanner.priority
+              td
+                p(style="width:80px;") #{topBanner.user_name}
+              td= topBanner.last_updated_date
+              td
+                form(action="/back/extend/update" method="get")
+                  button.btn.btn-success(type="submit" name="extendId" value= topBanner.id) 編集
+              td
+                form(action="/back/extend/delete" method="post")
+                  div.form-group
+                    input(type="hidden" name="image" value= topBanner.image_path)
+                    input(type="hidden" name="publish_datetime_start" value= topBanner.publish_datetime_start)
+                    input(type="hidden" name="publish_datetime_end" value= topBanner.publish_datetime_end)
+                    input(type="hidden" name="targetId" value= topBanner.id)
+                    button.btn.btn-danger(onclick="return toggleModal($(this).closest('.form-group').find('.confirmModal'))") 削除
+                    div.confirmModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+                      div.modal-dialog(role="document")
+                        div.modal-content
+                          div.modal-header
+                            h4#exampleModalLabel.modal-title 削除確認
+                          div.modal-body バナー情報は復元できません。削除します。
+                          div.modal-footer
+                            button.btn.btn-secondary(type="button" data-dismiss="modal") キャンセル
+                            button.btn.btn-danger(type="submit") 削除
+    div.paging
+  script.
+    $('#bannerList').datatable({
+    pageSize: 20,
+    sort: [true, true, true, true, true, true, true, true, true, true, true, true,false, false],
+    filters: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+    });
+    toggleModal = function(selecter) {
+    console.log(selecter);
+    selecter.modal('toggle');
+    // submit防止の為falseを返却
+    return false;
+    }

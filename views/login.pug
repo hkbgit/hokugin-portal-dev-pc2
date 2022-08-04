@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  include navigation
+  div.container
+    h1= title
+    h2 ログイン画面
+    if error
+      div.alert.alert-danger
+        p= error
+    form(method="post" action="/back/login")
+      div.form-group
+        label NAME
+        input.form-control(type="text" name="name")
+      div.form-group
+        label PASS
+        input.form-control(type="password" name="password")
+      button.btn.btn-primary(type="submit" value="Login") ログイン

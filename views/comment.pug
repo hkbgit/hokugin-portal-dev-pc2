@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  include navigation
+  div.container
+    h1= title
+    if error
+      div.alert.alert-danger
+        p= error
+    table#dataList.table
+      thead.thead-default
+        tr
+          th #
+          th.col-sm-2 コメント
+          th.col-sm-1 キャラ
+          th.col-sm-1 プレビュー
+          th.col-sm-2 リンク先URL
+          th.col-sm-1 表示開始日時
+          th.col-sm-1 表示終了日時
+          th.col-sm-1 最終更新者
+          th.col-sm-1 最終更新日
+          th  
+          th  
+      tbody
+       each item in comments
+          tr
+            td= item.number
+            td= item.comment
+            td= item.kyara_name
+            td
+              img.img-thumbnail(src=item.image_path alt="※画像ファイルなし" style="width:100%;")
+            td
+              p(style="word-break: break-all;")
+                a(href= item.link target="_blank") #{item.link}
+
+            td= item.publish_datetime_start
+            td= item.publish_datetime_end
+            td
+              p(style="width:80px;") #{item.user_name}
+            td= item.last_updated_date
+            td
+              form(action="/back/comment/update" method="get")
+                button.btn.btn-success(type="submit" name="commentId" value= item.id) 編集
+            td
+              form(action="/back/comment/delete" method="post")
+                div.form-group
+                  input(type="hidden" name="commentId" value= item.id)
+                  button.btn.btn-danger(onclick="return toggleModal($(this).closest('.form-group').find('.confirmModal'))") 削除
+                  div.confirmModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+                    div.modal-dialog(role="document")
+                      div.modal-content
+                        div.modal-header
+                          h4#exampleModalLabel.modal-title 削除確認
+                        div.modal-body バナー情報は復元できません。削除します。
+                        div.modal-footer
+                          button.btn.btn-secondary(type="button" data-dismiss="modal") キャンセル
+                          button.btn.btn-danger(type="submit") 削除
+    div.paging
+  script.
+    $('#dataList').datatable({
+    pageSize: 20,
+    sort: [true, true, true, true, true, true, true, true, true, false, false],
+    filters: [false, false, 'select', false, false, false, false, false, false, false, false, false, false, false, false],
+    });
+    toggleModal = function(selecter) {
+    console.log(selecter);
+    selecter.modal('toggle');
+    // submit防止の為falseを返却
+    return false;
+    }

@@ -1,0 +1,170 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+  script(src='/moment/min/moment.min.js')
+  script(src='/moment/locale/ja.js')
+  script(src='/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+  script.
+    $(function () {
+      $('.datetimepicker').datetimepicker({
+          locale: 'ja',
+          format : 'YYYY/MM/DD HH:mm'
+      });
+    });
+  include navigation
+  div.container
+    if title
+      h1= title
+    p (※)は必須入力です
+    if error
+      div.alert.alert-danger
+        p= error
+    div#errorMessage
+      p
+    //- mixin tairuForm(name, action)
+    form#tairuForm(name="registerTairu" method="post" action="/back/tairuRegister" enctype="multipart/form-data")
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputTitle") タイトル（※）
+          div.col-sm-3
+            if data
+              input.form-control#inputTitle(type="text" name="title"  maxlength="4" value= data.title)
+            else
+              input.form-control#inputTitle(type="text" name="title"  maxlength="4")
+        div.row
+          label.col-sm-12.control-label#errorTitle(for="inputTitle") 
+
+      div.form-group
+        div.row
+          label.col-sm-2.control-label(for="inputSubTitle") サブタイトル
+          div.col-sm-3
+            if data
+              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="4" value= data.sub_title)
+            else
+              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="4")
+        div.row
+          label.col-sm-12.control-label#errorSubTitle(for="inputSubTitle") 
+
+      div.form-group
+        div.row
+          label.col-sm-2.control-label イメージ（※）64*64
+          div.col-sm-3  
+            input#lefile(type="file" style="display:none" name="image")
+            div.input-group
+              if data
+                input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" value= data.image_path readonly)
+              else
+                input.form-control#inputImageName(type="text" placeholder="select file..." name="imageName" readonly)
+              span.input-group-addon(onclick="$('input[id=lefile]').click();")
+                span.glyphicon.glyphicon-picture
+        div.row
+          label.col-sm-12.control-label#errorImageName(for="inputImageName")   
+
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="inputLink") リンク先URL
+            div.col-sm-3
+              if data
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024" value=data.link)
+              else
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024")
+          div.row
+            label#errorLink.col-sm-12.control-label(for="inputLink")
+
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="selectCoordinate") 位置（※）
+            div.col-sm-3
+              select.form-control#selectCoordinate(name="coordinate")
+                  option(value= "")
+                  each attr in attrs
+                    if data
+                      if data.coordinate == attr.id
+                        option(value= attr.id selected) #{attr.name}
+                      else
+                        option(value= attr.id) #{attr.name}
+                    else
+                      option(value= attr.id) #{attr.name}
+          div.row
+            label.col-sm-12.control-label#errorCoordinate(for="selectCoordinate")
+        
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="inputPriority") 順位（※）
+            div.col-sm-2
+              if data
+                input.form-control#inputPriority(type="text" name="priority"  maxlength="1" value= data.priority)
+              else
+                input.form-control#inputPriority(type="text" name="priority"  maxlength="1")
+          div.row
+            label#errorPriority.col-sm-12.control-label(for="inputPriority")
+
+      div.form-group.row
+        div.col-sm-2.col-sm-offset-5
+          if data
+            input(type="hidden" id="tairuId" name="tairuId" value= data.id)
+          button.btn.btn-primary(data-toggle="modal" data-target="#confirmModal" onclick="return false;") 登録確認
+          div#confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            div.modal-dialog(role='document')
+              div.modal-content
+                div.modal-header
+                  h4#exampleModalLabel.modal-title 登録内容確認
+                div.modal-body
+                  | この内容で登録します
+                div.modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') キャンセル
+                  button#hideModal.btn.btn-primary(type='submit') 登録
+  script.
+   $(document).ready(function(){
+      var catalog = eval($('#asd').attr('value'));
+      for(var i = 0; i < catalog.length; i++){
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        div.className = "form-group" + i;
+        div.id = "dynamicDiv" + i;
+        document.getElementById("dynamic").appendChild(div);
+        var divp = document.getElementById('dynamicDiv'+i);
+        var inputs = divp.getElementsByTagName('input');
+        var textarea = divp.getElementsByTagName('textarea');
+        inputs[0].value = catalog[i].catalgTitle;
+        textarea[0].value = catalog[i].catalgLink;
+        console.log(inputs)
+      }
+    });
+    
+    $('input[id=lefile]').change(function() {
+      $('#inputImageName').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+    $('input[id=lefiles]').change(function() {
+      $('#inputImageNames').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+
+    $(".tanc-supa02").on("click", ".cp-button-default", function() {
+        //- detail_div -= 1;
+        $(this).parent().parent().parent().parent().remove();
+        
+    });
+
+    $('#hideModal').click(function() {
+      $('#confirmModal').modal('hide');
+    });
+    var detail_div = 1;
+    $('#addCatalog').click(function() {
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");
+        div.className = "form-group" + detail_div;
+        div.id = "dynamicDiv" + detail_div;
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        document.getElementById("dynamic").appendChild(div);
+        detail_div++;
+        
+    });
+
+    function deleteCatalog(val) {
+      $(val).parent().parent().parent().parent().remove();
+    };
+  script(type="text/javascript" src="/javascripts/tairu-form-validation.js")

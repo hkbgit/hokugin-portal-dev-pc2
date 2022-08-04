@@ -1,0 +1,584 @@
+@charset "utf-8"; 
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+
+/*------------------------ 
+タイトル: 基本設計
+制作者 : E.M.J #247
+URL : 
+概要 : ベースコード＋メニューバー＋フッタ
+作成日 : 2018/02/13
+変更日 : 2018/02/28
+--------------------------*/
+
+/*************************
+GENERAL　全体反映
+**************************/
+body {
+  background: #fff;
+  font-family:'Roboto','メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',Verdana, Geneva, Arial, Helvetica, 'ＭＳ Ｐゴシック', osaka, sans-serif;
+  font-size: 15px;
+  color:#4e4e4e;
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight:normal;
+  font-family:'Roboto','メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',Verdana, Geneva, Arial, Helvetica, 'ＭＳ Ｐゴシック', osaka, sans-serif;
+  color:#4e4e4e;
+}
+
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;/* 濃いめ */
+}
+
+a, a:focus, a:active, a:link, img {
+	outline: none;
+}
+
+a:hover, a:focus {
+  color:black;/* かなり薄め */
+  text-decoration: none;
+  transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -webkit-transition: all 0.25s ease 0s;
+  -o-transition: all 0.25s ease 0s;
+}
+
+a img:visited,
+a img:active,
+a img:hover {
+	/*Transition*/
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5;
+    opacity:0.5;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin:0;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  background-color:#f2f2f2;
+  padding: 0px 0;
+  padding-bottom: 0;
+}
+
+.navbar-nav{
+	margin-top: 8px;
+}
+
+.navbar-nav>li{
+  margin-left: 35px;
+  padding-bottom: 10px;
+  xbackground-image: url(../images/H-menu1@2x.png);
+  xbackground-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.navbar-nav>li.menu2{
+  xbackground-image: url(../images/H-menu2@2x.png);
+}
+
+#hokuhokupayicon {
+  xbackground-image: url(../images/hokuhokupay_playicon.png);
+}
+
+#tsuchoappicon {
+  background-image: url(../images/tsuchoapp_playicon.png);
+}
+
+#accountappicon {
+  background-image: url(../images/accountapp_playicon.png);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  padding: 5px 12px;
+  margin: 0;
+  border-radius: 3px;
+  color: #444;
+  line-height: 24px;
+}
+
+.navbar-inverse {
+  border: 0px solid #ccc;
+}
+
+.navbar-inverse .navbar-brand {
+  font-size: 36px;
+  line-height: 7vh;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  background-color: #f7f7f7;
+  color:black;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #fff;
+  color:black;
+}
+
+.navbar-inverse .navbar-nav a.active {
+  background-color: #016044;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu {
+  background-color: rgba(0,0,0,.85);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
+  border: 0;
+  padding: 0;
+  margin-top: 0;
+  padding-top: 1.8vh;
+  border-top: 0;
+  border-radius: 0;
+  left: 0;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu:before{
+  position: absolute;
+  top:0;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+  padding: 8px 15px;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li:hover > a,
+.navbar-inverse .navbar-nav .dropdown-menu > li:focus > a,
+.navbar-inverse .navbar-nav .dropdown-menu > li.active > a {
+  background-color: #016044;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li:last-child > a {
+  border-radius: 0 0 3px 3px;
+  
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li.divider {
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-top: 0;
+  padding-bottom: 0;
+}
+
+.social{
+  text-align: right;
+}
+
+.social-share{
+ display: inline-block;
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ vertical-align: middle;
+ width: 40%;
+}
+
+ul.social-share li {
+  display: inline-block;
+  height: 7vh;
+  margin-right: 10%;
+}
+
+ul.social-share li a {
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #999;
+  background: #f7f7f7;
+  background-image: url(../images/fbLogo@2x.png);
+  background-size:24px 24px; 
+  width: 24px;
+  height: 24px;
+  line-height: 8vh;
+  text-align: center;
+  border-radius: 2px;
+  margin-top: 0;
+  text-indent: -9999px;
+  
+}
+
+ul.social-share li a.fb {
+  background-image: url(../images/Logo_fb.png);
+  /* margin-right: 8vh; */
+  /* background-size: 24px 24px; */
+  /* height: 8vh; */
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+}
+
+ul.social-share li a.line {
+  background-image: url(../images/Logo_line.png);
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+}
+ul.social-share li a.tv {
+  background-image: url(../images/Logo_Twitter.png);
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+}
+
+ul.social-share li a:hover,
+ul.social-share li a:focus,
+ul.social-share li a:active {
+	opacity:0.5;
+	transition: all 0.9s ease 0s;
+}
+
+/*************************
+ゾーニング設定
+**************************/
+
+/* トップゾーン */
+.zone-inner {
+	position: relative;
+	width: 100vw;
+	height: 28vh;
+	padding: 0;
+	background-size: cover;
+	}
+
+.zone-inner a:hover,
+.zone-inner a:focus,
+.zone-inner a:active {
+	opacity: .5;
+	transition: all 0.9s ease 0s;
+	}
+
+.zone-inner_link-C {
+  padding-right: 0;
+
+	/* 画像に高さを指定していないので、天地中央をネガティブで配置 */
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  }
+
+.zone-inner_link-C img {
+	display: block;
+  width: 100vh;
+  text-align: right;
+  margin: 0;
+  }
+
+.zone-inner_top {
+	background-image: url(../images/bgZone1A@2x.png);
+	}
+
+.zone-inner_center {
+	background-image: url(../images/bgZone1B@2x.png);
+	}
+
+.zone-inner_bottom {
+	background-image: url(../images/bgZone1C@2x.png);
+	}
+
+.zone-banner {
+	position: relative;
+	width: 100vw;
+	height: 110px;
+	padding: 0;
+	background-size: cover;
+	}
+
+.zone-banner_banner {
+  padding-right: 0;
+  
+	/* 画像に高さを指定していないので、天地中央をネガティブで配置 */
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+	}
+
+.zone-banner_banner img {
+	display: block;
+  width: 100vh;
+  text-align: right;
+  margin: 0;
+  }
+
+/* ボックス設定 */
+.zone-box_each {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.zone-box_each.L1 {
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.zone-box_each.R1 {
+	border-bottom: 1px solid #ccc;
+}	
+
+.zone-box_each.L2 {
+	border-right: 1px solid #ccc;
+}	
+
+.zone-box_each.R2 {
+	xborder-bottom: 1px solid #ccc;
+	xborder-right: 1px solid #ccc;
+}	
+
+.zone-box_each img {
+	max-width: 60%
+}
+
+.zone-box_each a {
+	display: block;
+	position: relative;
+	xheight: 9vh;
+  color: #444;
+  xbackground-color: #f7f7f7;
+	text-align: center;
+	line-height: 1.2;
+	margin: 20px;
+	/* Boxに高さを指定しているので、天地中央をflexで配置 */
+	display: flex; /* flexboxで天地左右中央配置 */        
+  justify-content: center;/* 左右中央 */
+  align-items: center;/* 天地中央 */
+
+}
+
+/* バナー更新システム用設定 */
+.banner-inner_full {
+	position: relative;
+	width: 100vw;
+	xheight: 28vh;
+	padding: 0 0 2px 0;
+	}
+
+.banner-inner_full a {
+	}
+
+.banner-inner a:hover,
+.banner-inner a:focus,
+.banner-inner a:active {
+	opacity: .5;
+	transition: all 0.9s ease 0s;
+	}
+
+.banner-inner_half {
+	position: relative;
+	xwidth: 49vw;
+	xheight: 28vh;
+	padding: 0px 0 2px 0;
+	}
+	
+.banner-inner_half.Rside {
+	padding-left: 1px;
+	}
+
+.banner-inner_half a:hover,
+.banner-inner_half a:focus,
+.banner-inner_half a:active {
+	opacity: .5;
+	transition: all 0.9s ease 0s;
+}
+
+
+
+/* フッターナビゲーション（タブメニュー） */
+.zone-inner_bottom-menu {
+	height: 9vh;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  
+}
+
+.zone-inner_bottom-menu_each {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.zone-inner_bottom-menu_each a {
+	display: block;
+	position: relative;
+	height: 9vh;
+  color: #444;
+  background-color: #f7f7f7;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	line-height: 1.2;
+
+	/* Boxに高さを指定しているので、天地中央をflexで配置 */
+	display: flex; /* flexboxで天地左右中央配置 */        
+  justify-content: center;/* 左右中央 */
+  align-items: center;/* 天地中央 */
+}
+
+.zone-inner_bottom-menu_each a:hover,
+.zone-inner_bottom-menu_each a:focus,
+.zone-inner_bottom-menu_each a:active {
+  background-color: rgb(243,70,59);
+  color: #fff;
+	opacity:1;
+	transition: all 0.9s ease 0s;
+}
+
+.zone-inner_bottom-menu_each-active a {
+  border-top: 3px solid red;
+  color:red;
+	opacity:1;
+	transition: all 0.9s ease 0s;
+}
+
+
+/* xs スマホ向け　*/
+@media (max-width: 767px) {
+
+  body > section {
+    padding: 0;
+  }
+  
+  .container > .navbar-header, .container > .navbar-collapse{
+    margin-left: 0;
+  }
+
+  .navbar {
+    background-color: #ffffff;
+  }
+  
+  .navbar-nav>li{
+	  background-image: url(../images/H-menu1@2x.png);
+	  background-position: right 10px center;
+	}
+	
+  .navbar-nav>li.menu2{
+    background-image: url(../images/H-menu2@2x.png);
+  }
+
+  #hokuhokupayicon {
+    background-image: url(../images/hokuhokupay_playicon.png);
+  }
+  
+  #tsuchoappicon {
+    background-image: url(../images/tsuchoapp_playicon.png);
+  }
+  
+  #accountappicon {
+    background-image: url(../images/accountapp_playicon.png);
+  }
+
+	/* ナビバーとトグルのカスタマイズ */
+  .navbar .container {
+    padding-left: 0;	  
+    height: 4rem;
+  }
+
+	.navbar-inverse .navbar-toggle {
+    border-color: transparent;
+    margin-bottom: 0vh;
+    height: 7vh;
+    margin-top: 0px;
+	}
+
+	.navbar-inverse .navbar-toggle:hover,
+	.navbar-inverse .navbar-toggle:focus,
+	.navbar-inverse .navbar-toggle:active {
+		transition: all 0.9s ease 0s;
+	  background-color: #f7f7f7;
+	}
+	
+	.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: grey;
+	}
+
+  .navbar-brand {
+    padding-left: 15px;
+    line-height: 3.7rem;
+  }
+
+  .navbar-collapse {
+    max-height: 100%;
+    background: #fff;
+    padding-left: 0;  
+  }
+
+  .navbar-nav > li {
+    padding-bottom: 4px;
+    padding-top: 6px;
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+  }
+}
+
+
+/* HG暫定 */
+.bottom-banner {
+  background: #ff0;
+  font-size: 14px;
+  border-bottom: 1px solid #fff;
+}
+
+
+
+.bottom-banner-item {
+  background-color: rgb(243,70,59);
+  border: 5px solid #4ed6ad;
+  padding: 10px;
+}
+
+
+.bottom-banner-item:hover,
+.bottom-banner-item:focus,
+.bottom-banner-item:active
+ {
+	opacity: .5;
+	transition: all 0.9s ease 0s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
