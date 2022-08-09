@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "export TZ=Asia/Tokyo && node ./bin/www",
     "test": "mocha",
     "build": "npm install bower -g && npm install && npm i && bower install",
     "dev-settings": "python dev/change-constants.py constants.js",
