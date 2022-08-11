@@ -53,7 +53,7 @@ router.get('/', async(req, res, next) => {
 router.post('/', upload, async function(req, res, next) {
   logger.info('received request URL : ' + req.originalUrl);
   const session = global.session;
-  console.log("表单追加");
+  // console.log("表单追加");
   if (req.body.extendId) {
     // バナーIDが取得できた場合はバナー更新処理
     if (req.files.image || req.files.csv ) {
@@ -892,7 +892,7 @@ const getAllExtends2Callback = async (err, req, res, session, rows)=> {
 
 router.post('/validate/discussAdd', upload,async(req, res, next) =>{
   
-  console.log("表单校验22222...");
+  // console.log("表单校验22222...");
   let errorInfo = {};
   let imageErrorInfo = null;
   // logger.debug('imageFile :' + req.files.image);
@@ -1047,7 +1047,7 @@ const validateInputValue2 = function(req) {
 
 router.post('/discussAdd', upload, async function(req, res, next) {
 
-  console.log("=================> discussAdd");
+  // console.log("=================> discussAdd");
   logger.info('received request URL : ' + req.originalUrl);
   const session = global.session;
 
@@ -1087,7 +1087,7 @@ router.post('/discussAdd', upload, async function(req, res, next) {
 
 router.post('/localImage', upload, async function(req, res, next) {
 
-  console.log("=================> localImage");
+  // console.log("=================> localImage");
   logger.info('received request URL : ' + req.originalUrl);
 
   var error = 0;

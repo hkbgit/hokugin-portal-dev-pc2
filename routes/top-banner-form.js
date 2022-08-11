@@ -267,11 +267,11 @@ const asyncRegisterProcess = async (req, session, newTopBannerId = null) => {
       // 新規の契約者通番を契約者通番バナーに紐づける。既存の契約者通番の場合は既に紐づいている為、最終表示日時を空にする
       _ = await cloudantTopBannerDisplayInventoryModel.linkContractNumbersWithTopBanner(newContructNumbers, topBannerId);
       // デフォルトバナーでない場合、新規の契約者通番と既存のデフォルトバナーを紐づける
-      _ = await cloudantTopBannerDisplayInventoryModel.linkNewContractNumberWithDefaultBanners();
+      //_ = await cloudantTopBannerDisplayInventoryModel.linkNewContractNumberWithDefaultBanners();
 
     } else if (!isEdit && isDefault) {
       // デフォルトバナーの新規登録の場合、全てのapp_usersを対象としてアップされたバナーと既存ユーザを紐づける
-      let _ = await cloudantTopBannerDisplayInventoryModel.linkBannerWithAllContractNumbers( topBannerId);
+      //let _ = await cloudantTopBannerDisplayInventoryModel.linkBannerWithAllContractNumbers( topBannerId);
     }
     // commit
     // await connection.commit();

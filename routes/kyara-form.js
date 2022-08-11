@@ -68,7 +68,7 @@ router.get('/', async(req, res, next) => {
  router.post('/', upload, async function(req, res, next) {
   logger.info('received request URL : ' + req.originalUrl);
   const session = global.session;
-  console.log("表单追加");
+  // console.log("表单追加");
 
   if (req.body.kyaraId) {
     // バナーIDが取得できた場合はバナー更新処理
@@ -92,7 +92,7 @@ router.get('/', async(req, res, next) => {
 
 router.post('/validate', upload,async(req, res, next) =>{
   
-  console.log("表单校验22222...");
+  // console.log("表单校验22222...");
   let errorInfo = {};
   let imageErrorInfo = null;
   logger.debug('imageFile :' + req.files.image);

@@ -63,7 +63,7 @@ router.get('/', async(req, res, next) => {
 router.post('/', async function(req, res, next) {
   logger.info('received request URL : ' + req.originalUrl);
   const session = global.session;
-  console.log("表单追加");
+  // console.log("表单追加");
 
   var resultCount = 0
   try{
@@ -104,7 +104,7 @@ router.post('/', async function(req, res, next) {
 });
 
 router.post('/validate', async function(req, res, next) {
-  console.log("表单校验22222...");
+  // console.log("表单校验22222...");
   let errorInfo = {};
   const inputErrorInfo = validateInputValue(req);
 
