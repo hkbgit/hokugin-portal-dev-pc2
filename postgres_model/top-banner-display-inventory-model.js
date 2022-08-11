@@ -62,8 +62,8 @@ exports.linkContractNumbersWithTopBanner = async (contractNumbers, topBannerId) 
   await contractNumbers.forEachAsync(async contractNumber => {
     const sql = `
       INSERT INTO top_banner_display_inventory
-      (contract_no, top_banner_id, last_showed_date)
-      values($1, $2, '')
+      (contract_no, top_banner_id, last_showed_date,is_first)
+      values($1, $2, '',1)
       ON CONFLICT (contract_no, top_banner_id)
         DO UPDATE SET last_showed_date = '';
     `;
@@ -113,8 +113,8 @@ exports.linkNewContractNumberWithDefaultBanners = async () => {
           const contractNumber = row.contract_no;
           const insertSql = `
             INSERT INTO top_banner_display_inventory
-            (contract_no, top_banner_id, last_showed_date)
-            values($1, $2, '');
+            (contract_no, top_banner_id, last_showed_date,is_first)
+            values($1, $2, '', 1);
           `;
           const values = [contractNumber, defaultBannerId];
           const result = await connection.query(insertSql, values);
@@ -147,8 +147,8 @@ exports.linkBannerWithAllContractNumbers = async (topBannerId) => {
       const contractNo = row.contract_no;
       const insertSql = `
       INSERT INTO top_banner_display_inventory
-      (contract_no, top_banner_id, last_showed_date)
-      values($1, $2, '');
+      (contract_no, top_banner_id, last_showed_date,is_first)
+      values($1, $2, '',1);
       `;
       const values = [contractNo, topBannerId];
       const result = await connection.query(insertSql, values);
@@ -170,6 +170,8 @@ exports.getTopBannerIdByContractNumberPriority = async function(contractNumber) 
   let sql = `
     SELECT
       tbdi.top_banner_id AS id,
+      tbdi.last_showed_date,
+      tb.is_default,
       tb.top_banner_attribute_id,
       tb.image_path,
       tb.link
@@ -202,8 +204,12 @@ exports.getTopBannerIdByContractNumberPriority = async function(contractNumber) 
        ) AS tb
     ON tbdi.top_banner_id = tb.id
     ORDER BY
+      case
+        when tbdi.last_showed_date is null then '1'
+        else '0'
+      end ,
       tbdi.last_showed_date asc,
-      tb.is_default desc,
+      tb.is_default asc,
       CASE
         WHEN priority is NULL then '1'
         ELSE '0'
@@ -235,7 +241,7 @@ exports.updateStatusIfOneRound = async function(contractNumber) {
     AND last_showed_date = ''
   `
   const selectResult = await connection.query(select, values);
-  if(selectResult[0].count!==0) {
+  if(selectResult[0].count != 0) {
     return true;
   }
   logger.debug('execute findTopBannerByAppUserPriority update query');
@@ -277,14 +283,33 @@ exports.linkContractNumberAtFirstConnect = async (contractNumber) => {
   await defaultBanners.forEachAsync(async row => {
     const insert = `
       INSERT INTO top_banner_display_inventory
-      (contract_no, top_banner_id, last_showed_date)
-      values($1, $2, '');
+      (contract_no, top_banner_id, last_showed_date,is_first)
+      values($1, $2, '',1);
     `
     const values = [contractNumber, row.id];
     const updateResult = await connection.query(insert, values);
   });
   return true;
 }
+
+/**
+ * 新規に接続してきた契約者通番を、デフォルトバナーと紐づける
+ */
+ exports.linkBanner = async (contractNumber,bannerIds) => {
+
+  const insert = `
+  INSERT INTO top_banner_display_inventory
+  (contract_no, top_banner_id, last_showed_date,is_first)
+  values($1, $2, '',1);
+`
+  for (var i = 0; i < bannerIds.length; i++) {
+    const values = [contractNumber, bannerIds[i]];
+    const updateResult = await connection.query(insert, values);
+  }
+
+  return true;
+}
+
 
 
 

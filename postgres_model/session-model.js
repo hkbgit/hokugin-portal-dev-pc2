@@ -53,7 +53,7 @@ exports.addErrorMsg = async (session, msg) => {
  */
 exports.insertFrontSession = async (req, contracterNo) => {
   console.log("insertFrontSession start: ");
-  return insert(req.session.id, '', '', '', contracterNo, '', new Date().getTime())
+  return insert(req.session.id, null, '', '', contracterNo, '', new Date().getTime())
 };
 /**
  * 修改前台session

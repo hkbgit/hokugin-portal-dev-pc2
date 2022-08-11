@@ -20,7 +20,7 @@ exports.getAllTopBanners = async (req, res, session, callback) => {
     : `
       INNER JOIN top_banner_display_inventory
       ON top_banner_display_inventory.top_banner_id = top_banners.id
-      WHERE top_banner_display_inventory.contract_no = $1
+      AND top_banner_display_inventory.contract_no = $1
       AND top_banners.is_default = 0
     `
   let sql = `
@@ -513,6 +513,33 @@ exports.deleteTopBanner = async (topBannerId) => {
 
 
   return result;
+
+}
+
+exports.findNotBannerId = async function(contractNumber){
+  logger.debug('execute findNotBannerId query');
+  const sql = `
+    SELECT
+      ID
+    FROM
+      TOP_BANNERS TB
+    WHERE
+      TB.IS_DEFAULT = '1'
+      AND TB.ID NOT IN (
+      SELECT
+        TOP_BANNER_ID
+      FROM
+        TOP_BANNER_DISPLAY_INVENTORY TBDI
+      WHERE
+        TBDI.CONTRACT_NO = $1)
+  `;
+  const values = [
+    contractNumber
+  ];
+  logger.debug('execute findNotBannerId query');
+  let rows = await connection.query(sql, values)
+
+  return rows;
 
 }
 
