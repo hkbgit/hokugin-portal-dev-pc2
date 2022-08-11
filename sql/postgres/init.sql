@@ -76,6 +76,7 @@ create table top_banner_display_inventory (
   contract_no varchar(24) not null,
   top_banner_id int not null,
   last_showed_date varchar(30) default '' not null ,
+  is_first int ,
   constraint display_recode unique (contract_no, top_banner_id)
 );
 
