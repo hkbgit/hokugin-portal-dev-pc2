@@ -141,11 +141,11 @@ exports.renderWithBaseInfo = function(req, res, viewName, additionalInfo, sessio
     updateDate: session[0].user_last_password_updated_date,
   };
   const passedDays = this.countPassedDays(session[0].user_last_password_updated_date, this.getCurrentDate());
-    if (constants.UPDATE_PASSWORD_LIMIT_DAYS <= passedDays) {
-    // パスワード最終更新日から指定日数経過時、ビューに通知する
-    baseInfo.passwordLimitDays = constants.UPDATE_PASSWORD_LIMIT_DAYS;
-    baseInfo.password_pop = 'password_pop';
-  }
+  //  if (constants.UPDATE_PASSWORD_LIMIT_DAYS <= passedDays) {
+  //  // パスワード最終更新日から指定日数経過時、ビューに通知する
+  //  baseInfo.passwordLimitDays = constants.UPDATE_PASSWORD_LIMIT_DAYS;
+  //  baseInfo.password_pop = 'password_pop';
+  //}
   const info = Object.assign({}, baseInfo, additionalInfo);
   res.render(viewName, info);
   logger.debug('renderWithBaseInfo :' + viewName + ' is rendered');
