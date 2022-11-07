@@ -28,9 +28,9 @@ block content
             label.col-sm-2.control-label(for="inputComment") コメント（※）
             div.col-sm-3
               if comment
-                input.form-control#inputComment(type="text" name="comment"  maxlength="20" value= comment.comment)
+                input.form-control#inputComment(type="text" name="comment"  maxlength="36" value= comment.comment)
               else
-                input.form-control#inputComment(type="text" name="comment"  maxlength="20")
+                input.form-control#inputComment(type="text" name="comment"  maxlength="36")
           div.row
             label.col-sm-12.control-label#errorComment(for="inputComment") 
       div.form-group
