@@ -53,12 +53,12 @@ const fs = require('fs')
 //        rejectUnauthorized: true,
 //      }
 //};
-//環境(PostgreSQL-hokuriku-dev)
+//テスト環境(PostgreSQL-hokuriku-bank)
 const config = {
     user: 'admin',
-    password: 'e2cfd511ae684650326b9f5eb2b2857ff5bfaf883ed422f03',
-    host: 'd5d8313f-0e48-4d3c-ba63-962b188ddd0e.c8gao0tt0nr65snb1shg.databases.appdomain.cloud',
-    port: 30435,
+    password: '8e3598b71d5cc7f1400c69fc40e0be1c22b155ba92164fece679',
+    host: 'a1fe6b2d-b8de-4079-9367-9032e55c38a6.c8gao0tt0nr65snb1shg.databases.appdomain.cloud',
+    port: 32733,
     database: 'hokuriku_portal',
     ssl: true,
     ssl: {
