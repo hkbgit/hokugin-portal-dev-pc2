@@ -233,10 +233,8 @@ const asyncRegisterProcess = async (req, session, newTopBannerId = null) => {
       if (isImageUpdated) {
         //バナーイメージファイル更新の場合画像のimage_pathを更新し、最終更新日時を更新
         const topBannerRows = await cloudantTopBannerModel.getTopBannerInfoSync(topBannerId);
-        if (1 !== topBannerRows.length) {
-          throw Error("result row was expeced 1, but: " + topBannerRows);
-        }
-        const originImagePath = topBannerRows[0].image_path;
+
+        const originImagePath = topBannerRows.image_path;
         // TOP画面バナー画像が新しくアップロードされた時イメージを更新
         imagePath = await saveImage(imageFile, originImagePath);
       }
