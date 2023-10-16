@@ -454,7 +454,7 @@ exports.getTopBannerInfo = async (req, res, session, callback, topBannerId) => {
 */
 exports.getTopBannerInfoSync = async function (topBannerId) {
   logger.debug('execute getTopBannerInfoSync query');
-  return this.searchTopBannerInfo(topbannerId);
+  return searchTopBannerInfo(topBannerId);
 }
 
 /**
