@@ -114,7 +114,7 @@ exports.insertImageDataSync3 = async (filepath, binary) => {
 exports.updateImageDataSync2 = async (req,filepath, binary, targetImagePath,filepath1, binary1, targetImagePath1) => {
   // logger.debug('execute updateImageDataSync query');
 
-  const sql = ` UPDATE images SET image_path = ?, image_binary = ? WHERE image_path = ? ; `;
+  const sql = ` UPDATE images SET image_path = $1, image_binary = $2 WHERE image_path = $3 ; `;
   
 
    var str = "";
