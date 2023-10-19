@@ -29,9 +29,9 @@ block content
           label.col-sm-2.control-label(for="inputTitle") タイトル（※）
           div.col-sm-3
             if data
-              input.form-control#inputTitle(type="text" name="title"  maxlength="5" value= data.title)
+              input.form-control#inputTitle(type="text" name="title"  maxlength="6" value= data.title)
             else
-              input.form-control#inputTitle(type="text" name="title"  maxlength="5")
+              input.form-control#inputTitle(type="text" name="title"  maxlength="6")
         div.row
           label.col-sm-12.control-label#errorTitle(for="inputTitle") 
 
@@ -40,9 +40,9 @@ block content
           label.col-sm-2.control-label(for="inputSubTitle") サブタイトル
           div.col-sm-3
             if data
-              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="5" value= data.sub_title)
+              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="6" value= data.sub_title)
             else
-              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="5")
+              input.form-control#inputSubTitle(type="text" name="subTitle"  maxlength="6")
         div.row
           label.col-sm-12.control-label#errorSubTitle(for="inputSubTitle") 
 
