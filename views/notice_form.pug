@@ -1,0 +1,123 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')
+  script(src='/moment/min/moment.min.js')
+  script(src='/moment/locale/ja.js')
+  script(src='/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+  script.
+    $(function () {
+      $('.datetimepicker').datetimepicker({
+          locale: 'ja',
+          format : 'YYYY/MM/DD HH:mm'
+      });
+    });
+  include navigation
+  div.container
+    if title
+      h1= title
+    p (※)は必須入力です
+    if error
+      div.alert.alert-danger
+        p= error
+    div#errorMessage
+      p
+    form#noticeForm(name="registerNotice" method="post" action="/back/noticeRegister" )
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="inputNotice") お知らせ（※）
+            div.col-sm-3
+              if notice
+                input.form-control#inputNotice(type="text" name="notice"  maxlength="20" value= notice.notice_title)
+              else
+                input.form-control#inputNotice(type="text" name="notice"  maxlength="20")
+          div.row
+            label.col-sm-12.control-label#errorNotice(for="inputNotice") 
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="inputLink") お知らせURL（※）
+            div.col-sm-3
+              if notice
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024" value=notice.link)
+              else
+                input.form-control#inputLink(type="text" name="link"  maxlength="1024")
+          div.row
+            label#errorLink.col-sm-12.control-label(for="inputLink")
+
+      div.form-group
+          div.row
+            label.col-sm-2.control-label(for="inputPublishDateTimeStart") 表示開始日時（※）
+            div.col-sm-3
+              div.input-group.datetimepicker
+                if notice
+                  input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" value= notice.publish_datetime_start placeholder="YYYY/MM/DD hh:mm")
+                else
+                  input.form-control#inputPublishDateTimeStart(type="text" name="publish_datetime_start" placeholder="YYYY/MM/DD hh:mm")
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
+            label.col-sm-2.control-label(for="inputPublishDateTimeEnd") 表示終了日時（※）
+            div.col-sm-3
+              div.input-group.datetimepicker
+                if notice
+                  input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" value= notice.publish_datetime_end placeholder="YYYY/MM/DD hh:mm")
+                else
+                  input.form-control#inputPublishDateTimeEnd(type="text" name="publish_datetime_end" placeholder="YYYY/MM/DD hh:mm")
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
+          div.row
+            label#errorPublishDateTimeStart.col-sm-12.control-label(for="inputPublishDateTimeStart")
+          div.row
+            label#errorPublishDateTimeEnd.col-sm-12.control-label(for="inputPublishDateTimeEnd")
+
+      div.form-group.row
+        div.col-sm-2.col-sm-offset-5
+          if notice
+            input(type="hidden" id="noticeId" name="noticeId" value= notice.id)
+          button.btn.btn-primary(data-toggle="modal" data-target="#confirmModal" onclick="return false;") 登録確認
+          div#confirmModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            div.modal-dialog(role='document')
+              div.modal-content
+                div.modal-header
+                  h4#exampleModalLabel.modal-notice 登録内容確認
+                div.modal-body
+                  | この内容で登録します
+                div.modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') キャンセル
+                  button#hideModal.btn.btn-primary(type='submit') 登録
+      
+  script.
+   
+    
+    $('input[id=lefile]').change(function() {
+      $('#inputImageName').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+    $('input[id=lefiles]').change(function() {
+      $('#inputImageNames').val($(this).val().replace(/C:\\fakepath\\/g ,""));
+    });
+
+    $(".tanc-supa02").on("click", ".cp-button-default", function() {
+        //- detail_div -= 1;
+        $(this).parent().parent().parent().parent().remove();
+        
+    });
+
+    $('#hideModal').click(function() {
+      $('#confirmModal').modal('hide');
+    });
+    var detail_div = 1;
+    $('#addCatalog').click(function() {
+        var e = document.getElementById("dynamicDiv");
+        var div = document.createElement("div");t
+        div.className = "form-group" + detail_div;
+        div.id = "dynamicDiv" + detail_div;
+        e.disabled='';
+        div.innerHTML = e.innerHTML;
+        document.getElementById("dynamic").appendChild(div);
+        detail_div++;
+        
+    });
+
+    function deleteCatalog(val) {
+      $(val).parent().parent().parent().parent().remove();
+    };
+  script(type="text/javascript" src="/javascripts/notice-form-validation.js")
