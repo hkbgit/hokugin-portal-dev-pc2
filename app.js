@@ -21,6 +21,8 @@ const kyara = require('./routes/kyara');
 const kyaraForm = require('./routes/kyara-form');
 const tairu = require('./routes/tairu');
 const tairuForm = require('./routes/tairu-form');
+const notice = require('./routes/notice');
+const noticeForm = require('./routes/notice-form');
 
 
 const uuidv1 = require('uuid');
@@ -91,6 +93,8 @@ app.use(constants.ROUTE.KYARA, kyara);
 app.use(constants.ROUTE.KYARA_REGISTER, kyaraForm);
 app.use(constants.ROUTE.TAIRU, tairu);
 app.use(constants.ROUTE.TAIRU_REGISTER, tairuForm);
+app.use(constants.ROUTE.NOTICE, notice);
+app.use(constants.ROUTE.NOTICE_REGISTER, noticeForm);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -174,7 +174,10 @@ module.exports = Object.freeze({
     FAILED_TO_UPDATE_TAIRU: 'タイル変更に失敗しました',
     FAILED_TAIRU_PRIORITY:'順位は1～9の間で入力してください',
     FAILED_TAIRU_COORDINATE:'位置を選択してください',
-
+    FAILED_TO_REGISTER_NOTICE: "お知らせ登録に失敗しました",
+    FAILED_TO_DELETE_NOTICE: 'お知らせ削除に失敗しました',
+    FAILED_TO_UPDATE_NOTICE: 'お知らせ変更に失敗しました',
+    NOTICE_TITLE_LENGTH: 'お知らせは20文字以内で設定してください',
 
   },
   ROUTE: {
@@ -211,7 +214,10 @@ module.exports = Object.freeze({
     UPDATE_KYARA: '/back/kyara/update',
     TAIRU: '/back/tairu',
     TAIRU_REGISTER: '/back/tairuRegister',
-    TAIRU_UPDATE: '/back/tairu/update'
+    TAIRU_UPDATE: '/back/tairu/update',
+    NOTICE: '/back/notice',
+    NOTICE_REGISTER: '/back/noticeRegister',
+    NOTICE_UPDATE: '/back/notice/update'
   },
   VIEW: {
     FRONT: {
@@ -249,6 +255,8 @@ module.exports = Object.freeze({
     KYARA_FORM: 'kyara_form',
     TAIRU: 'tairu',
     TAIRU_FORM: 'tairu_form',
+    NOTICE: 'notice',
+    NOTICE_FORM: 'notice_form',
 
   },
   TITLE: {
@@ -271,5 +279,7 @@ module.exports = Object.freeze({
     KYARA_FORM: 'キャラ登録',
     TAIRU: 'タイル一覧',
     TAIRU_FORM: 'タイル登録',
+    NOTICE: 'お知らせ一覧',
+    NOTICE_FORM: 'お知らせ登録',
   }
 });
