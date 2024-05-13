@@ -40,7 +40,7 @@ router.get('/', async(req, res, next) => {
     }
     util.renderWithBaseInfo(req, res, constants.VIEW.NOTICE_FORM, info, session);
   } catch (error) {
-    logger.error('getAllKyaraCallback updateSession for delete errorMsg error : \n' + error);
+    logger.error('getAllNoticeback updateSession for delete errorMsg error : \n' + error);
     sessionManager.destroy(req);
     msg = constants.CLOUDANT.RES_MESSAGE.OTHER_ERROR;
     res.render(constants.VIEW.LOGIN, { title: constants.TITLE.LOGIN, error: msg});
@@ -60,11 +60,16 @@ router.post('/', async function(req, res, next) {
   // console.log("表单追加");
 
   var resultCount = 0
+  var updateCount = 0
+  
   try{
     if (req.body.noticeId) {
-      cloudantNoticeModel.updateItem(req, session);
+      resultCount = 1
+      updateCount = await cloudantNoticeModel.updateItem(req, session);
+      console.log(updateCount)
     } else {
       resultCount = await cloudantNoticeModel.createItemAsync(req, session);
+      console.log(resultCount)
     }
 
     logger.debug('createItem is success')
@@ -79,10 +84,15 @@ router.post('/', async function(req, res, next) {
       logger.error('failed to query');
     }
     logger.error('error info : \n' + err);
-    logger.debug('delete saved Image file');
     // renderError(req, res, {error: msg});
     try {
-      await sessionModel.sessionAddErrorMsg(req,constants.MESSAGE.FAILED_TO_REGISTER_NOTICE);
+      
+      await sessionModel.sessionAddErrorMsg(req,constants.MESSAGE.FAILED_TO_UPDATE_NOTICE);
+
+      if (resultCount == 0) {
+        await sessionModel.sessionAddErrorMsg(req,constants.MESSAGE.FAILED_TO_REGISTER_NOTICE);
+      } 
+
       res.redirect(constants.ROUTE.NOTICE_REGISTER);
     } catch (error) {
       logger.error('save session errorMsg error: '+error);
@@ -93,7 +103,7 @@ router.post('/', async function(req, res, next) {
     }
     return;
   }
-  
+
 
 });
 
@@ -139,7 +149,16 @@ router.post('/validate', async function(req, res, next) {
   const errorInfo = {};
 
   logger.debug('validateInputValue() called');
-  if (formValues.notice.length <= 0 || constants.MAX_LENGTH_TITLE < formValues.notice.length) {
+  if (formValues.notice.length <= 0) {
+    // タイトル文字は空くことはできない
+    logger.debug("notice is not null");
+    errorInfo.notice = {
+      msg: constants.MESSAGE.NOTICE_TITLE_NULL
+    };
+    hasInvalidValue = true;
+  }
+
+  if (constants.MAX_NOTICE_LENGTH < formValues.notice.length) {
     // タイトル文字列長エラー
     logger.debug("notice length is out of range");
     errorInfo.notice = {
@@ -148,15 +167,24 @@ router.post('/validate', async function(req, res, next) {
     hasInvalidValue = true;
   }
 
+  if (formValues.link.length　<= 0) {
+    // リンク先URLは空くことはできない
+    logger.debug("link is not null");
+    errorInfo.link = {
+      msg: constants.MESSAGE.NOTICE_LINK_NULL
+    }
+    hasInvalidValue = true;
+  }
 
-  // if (formValues.link.length <= 0 || constants.MAX_LENGTH_LINK < formValues.link.length) {
-  //   // リンク先文字列長エラー
-  //   logger.debug("link length is out of range");
-  //   errorInfo.link = {
-  //     msg: constants.MESSAGE.LINK_LENGTH
-  //   }
-  //   hasInvalidValue = true;
-  // }
+  if (constants.MAX_LENGTH_LINK < formValues.link.length) {
+    // リンク先URL文字列長エラー
+    logger.debug("link length is out of range");
+    errorInfo.link = {
+      msg: constants.MESSAGE.LINK_LENGTH
+    }
+    hasInvalidValue = true;
+  }
+
 
   if ('' !== formValues.publishDateTimeStart && null === formValues.publishDateTimeStart.match(PATTERN_DATETIME)) {
     // 公開開始日時に何か入力されていた場合、フォーマットチェックを行う。
@@ -167,6 +195,26 @@ router.post('/validate', async function(req, res, next) {
     }
     hasInvalidValue = true;
   }
+
+  if (formValues.publishDateTimeStart.length <= 0) {
+    // 公開開始日時 IS NULL
+    logger.debug("publishDateTimeStart is null");
+    errorInfo.publishDateTimeStart = {
+      msg: constants.MESSAGE.PUBLISHDATE_START_NULL
+    }
+    hasInvalidValue = true;
+  }
+
+  
+  if (formValues.publishDateTimeEnd.length <= 0) {
+    // 公開終了日時 IS NULL
+    logger.debug("publishDateTimeEnd is null");
+    errorInfo.publishDateTimeStart = {
+      msg: constants.MESSAGE.PUBLISHDATE_END_NULL
+    }
+    hasInvalidValue = true;
+  }
+
   if ('' !== formValues.publishDateTimeEnd) {
     // 公開終了日時に何か入力されていた場合、フォーマットチェックを行う。
     if (null === formValues.publishDateTimeEnd.match(PATTERN_DATETIME)) {

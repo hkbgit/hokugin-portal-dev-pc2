@@ -62,7 +62,7 @@ router.get('/update', async (req, res, next) => {
     try {
         let rows = await cloudantNoticeModel.getItemById(noticeId);
         if (rows.length != 1) {
-        throw Error('faild to get extendInfo');
+        throw Error('faild to get notice');
         }
         const info = {
             title: constants.TITLE.NOTICE_FORM,
@@ -80,9 +80,16 @@ router.get('/update', async (req, res, next) => {
           logger.error('failed to query');
         }
         logger.error('error info : \n' + err);
-        util.renderWithBaseInfo(req, res, constants.VIEW.NOTICE, {
-            title: constants.TITLE.NOTICE, error: msg,
-            }, session);
+        try {
+            await sessionModel.sessionAddErrorMsg(req,constants.MESSAGE.FAILED_TO_UPDATE_NOTICE);
+            res.redirect(constants.ROUTE.NOTICE);
+          } catch (error) {
+            logger.error('save session errorMsg error: '+error);
+            sessionManager.destroy(req);//这里只是将系统的session删除了，并没有删除数据库的
+            msg = constants.CLOUDANT.RES_MESSAGE.OTHER_ERROR;
+            res.render(constants.VIEW.LOGIN, { title: constants.TITLE.LOGIN, error: msg});
+            return;
+          }
         return;
     }
     
@@ -95,11 +102,14 @@ router.post('/delete', async function(req, res, next) {
     try {
         let notice = await cloudantNoticeModel.getItemById(noticeId);
         if (notice.length != 1) {
-          throw Error('faild to get notice');
+            throw Error('faild to get notice');
         }
       
         const result = await cloudantNoticeModel.deleteItem(noticeId);
-
+        if (result != 1) {
+            throw Error('faild to delete notice');
+        }
+        
         res.redirect(constants.ROUTE.NOTICE);
     } catch (err) {
         let msg = '';
@@ -111,9 +121,16 @@ router.post('/delete', async function(req, res, next) {
           logger.error('failed to query');
         }
         logger.error('error info : \n' + err);
-        util.renderWithBaseInfo(req, res, constants.VIEW.NOTICE, {
-            title: constants.TITLE.NOTICE, error: msg,
-            }, session);
+        try {
+            await sessionModel.sessionAddErrorMsg(req,constants.MESSAGE.FAILED_TO_DELETE_NOTICE);
+            res.redirect(constants.ROUTE.NOTICE);
+          } catch (error) {
+            logger.error('save session errorMsg error: '+error);
+            sessionManager.destroy(req);//这里只是将系统的session删除了，并没有删除数据库的
+            msg = constants.CLOUDANT.RES_MESSAGE.OTHER_ERROR;
+            res.render(constants.VIEW.LOGIN, { title: constants.TITLE.LOGIN, error: msg});
+            return;
+          }
         return;
     }
     
