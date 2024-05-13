@@ -27,8 +27,8 @@ $('#noticeForm').submit(function(event) {
       const errorInfo = data;
       if (errorInfo.notice) {
         console.log("=========>notice");
-        $('#inputnotice').parents('.form-group').addClass('has-error');
-        $('#errornotice').text(errorInfo.notice.msg);
+        $('#inputNotice').parents('.form-group').addClass('has-error');
+        $('#errorNotice').text(errorInfo.notice.msg);
       }
       if (errorInfo.link) {
         if(!errorInfo.link.msg) {
@@ -66,8 +66,8 @@ const removeErrorInfo = function() {
   $('#errorPublishDateTimeStart').text(EMPTY_STRING);
   $('#inputPublishDateTimeEnd').parents('.form-group').removeClass('has-error');
   $('#errorPublishDateTimeEnd').text(EMPTY_STRING);
-  $('#inputnotice').parents('.form-group').removeClass('has-error');
-  $('#errornotice').text(EMPTY_STRING);
+  $('#inputNotice').parents('.form-group').removeClass('has-error');
+  $('#errorNotice').text(EMPTY_STRING);
   $('#errorMessage').removeClass('alert alert-danger');
   $('#errorMessage').find('p').text(EMPTY_STRING);
 }
