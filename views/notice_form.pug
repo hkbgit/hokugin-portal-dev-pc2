@@ -28,9 +28,9 @@ block content
             label.col-sm-2.control-label(for="inputNotice") お知らせ（※）
             div.col-sm-3
               if notice
-                input.form-control#inputNotice(type="text" name="notice"  maxlength="20" value= notice.notice_title)
+                input.form-control#inputNotice(type="text" name="notice"  maxlength="100" value= notice.notice_title)
               else
-                input.form-control#inputNotice(type="text" name="notice"  maxlength="20")
+                input.form-control#inputNotice(type="text" name="notice"  maxlength="100")
           div.row
             label.col-sm-12.control-label#errorNotice(for="inputNotice") 
       div.form-group
